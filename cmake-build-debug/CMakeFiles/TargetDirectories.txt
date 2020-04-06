@@ -1,0 +1,3 @@
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles/MoviePlaiterCLion.dir
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles/edit_cache.dir
