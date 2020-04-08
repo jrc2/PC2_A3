@@ -143,12 +143,12 @@ void MovieLibraryWindow::cbLoad(Fl_Widget* widget, void* data)
     MovieLibraryWindow* window = (MovieLibraryWindow*)data;
     window->promptUserForFilename(Fl_File_Chooser::SINGLE, "Movie file to load");
 
-    ifstream ifs(window->getFilename());
-    string content;
-    content.assign((istreambuf_iterator<char>(ifs)),istreambuf_iterator<char>());
+    ifstream movieFile(window->getFilename());
+    string movieFileContent;
+    movieFileContent.assign((istreambuf_iterator<char>(movieFile)), istreambuf_iterator<char>());
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Filename selected: " << window->getFilename() << endl;
-    cout << "Content: " << content << endl;
+    cout << "Content: " << movieFileContent << endl;
 #endif
 
 }
@@ -186,28 +186,27 @@ const string MovieLibraryWindow::promptUserForFilename(int type, const string& t
     return this->selectedFilename;
 }
 
-//
-// Gets the filename the user selected when the file chooser was invoked
-//
-// @precondition none
-// @postcondition none
-//
-// @return The filename the user had selected when the file chooser was invoked
-//
+/**
+ * Gets the filename the user selected when the file chooser was invoked
+ *
+ * @precondition none
+ * @postcondition none
+ *
+ * @return The filename the user had selected when the file chooser was invoked
+*/
 const string MovieLibraryWindow::getFilename() const
 {
     return this->selectedFilename;
 }
 
-//
-// Callback when the Save button is invoked
-//
-// @precondition widget != 0 AND data != 0
-// @postcondition MovieLibraryWindow::getFilename() == file selected by the user
-//
-// @param widget The widget that initiatied the callback
-// @param data Any data that was passed with the call back. In this instance, a pointer to the window.
-//
+/**
+ * Callback when the Save button is invoked
+ * @precondition widget != 0 AND data != 0
+ * @postcondition MovieLibraryWindow::getFilename() == file selected by the user
+ *
+ * @param widget The widget that initiatied the callback
+ * @param data Any data that was passed with the call back. In this instance, a pointer to the window.
+*/
 void MovieLibraryWindow::cbSave(Fl_Widget* widget, void* data)
 {
     MovieLibraryWindow* window = (MovieLibraryWindow*)data;
@@ -219,15 +218,15 @@ void MovieLibraryWindow::cbSave(Fl_Widget* widget, void* data)
 
 }
 
-//
-// Callback when the Add button is invoked
-//
-// @precondition widget != 0 AND data != 0
-// @postcondition none
-//
-// @param widget The widget that initiatied the callback
-// @param data Any data that was passed with the call back. In this instance, a pointer to the window.
-//
+/**
+ * Callback when the Add button is invoked
+ *
+ * @precondition widget != 0 AND data != 0
+ * @postcondition none
+ *
+ * @param widget The widget that initiated the callback
+ * @param data Any data that was passed with the call back. In this instance, a pointer to the window.
+*/
 void MovieLibraryWindow::cbAddMovie(Fl_Widget* widget, void* data)
 {
     MovieLibraryWindow* window = (MovieLibraryWindow*)data; // TODO Currently, not used by may need to be used when adapt code
