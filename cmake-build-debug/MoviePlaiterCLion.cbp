@@ -98,9 +98,6 @@
 		<Unit filename="/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h">
 			<Option target="MoviePlaiterCLion"/>
 		</Unit>
-		<Unit filename="/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/ratings.cpp">
-			<Option target="MoviePlaiterCLion"/>
-		</Unit>
 		<Unit filename="/home/csuser/Documents/code/A3/MoviePlaiterCLion/Utils/Utils.cpp">
 			<Option target="MoviePlaiterCLion"/>
 		</Unit>

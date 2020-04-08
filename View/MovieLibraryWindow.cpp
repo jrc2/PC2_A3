@@ -16,16 +16,15 @@
 namespace view
 {
 
-//
-// Constructs a movie library window creating and initializing all the widgets that will be displayed
-//
-// @precondition width > 0 AND height > 0
-// @postcondition none
-//
-// @param width The width of the window
-// @param height The height of the window
-// @param title The title to display for the window
-//
+/**
+ * Constructs a movie library window creating and initializing all the widgets that will be displayed
+ * @precondition width > 0 AND height > 0
+ * @postcondition none
+ *
+ * @param width The width of the window
+ * @param height The height of the window
+ * @param title The title to display for the window
+*/
 MovieLibraryWindow::MovieLibraryWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
     begin();
@@ -57,10 +56,10 @@ MovieLibraryWindow::MovieLibraryWindow(int width, int height, const char* title)
     end();
 }
 
-//
-// Overriding drawing of FL_Window so can draw a boxes around the sorting type radio buttons
-// to make them appear in a group
-//
+/**
+ * Overriding drawing of FL_Window so can draw a boxes around the sorting type radio buttons
+ * to make them appear in a group
+ */
 void MovieLibraryWindow::draw()
 {
     Fl_Window::draw();
@@ -98,15 +97,15 @@ void MovieLibraryWindow::createAndDisplaySortingRadioButtons()
     this->sortOrderSelection = NAME_ASCENDING;
 }
 
-//
-// Callback when a radio button for the way to sort the movies has changed
-//
-// @precondition widget != 0 AND data != 0
-// @postcondition MovieLibraryWindow::getSortOrder() == value of new sort order selected
-//
-// @param widget The widget that initiatied the callback
-// @param data Any data that was passed with the call back. In this instance, a pointer to the window.
-//
+/**
+ * Callback when a radio button for the way to sort the movies has changed
+ *
+ * @precondition widget != 0 AND data != 0
+ * @postcondition MovieLibraryWindow::getSortOrder() == value of new sort order selected
+ *
+ * @param widget The widget that initiatied the callback
+ * @param data Any data that was passed with the call back. In this instance, a pointer to the window.
+*/
 void MovieLibraryWindow::cbSortingMethodChanged(Fl_Widget* widget, void* data)
 {
     MovieLibraryWindow* window = (MovieLibraryWindow*)data;
@@ -117,26 +116,26 @@ void MovieLibraryWindow::cbSortingMethodChanged(Fl_Widget* widget, void* data)
 #endif
 }
 
-//
-// Callback that is an instance function of the window class to encapsulate function
-//
-// @precondition none
-// @postcondition getSortOrder() == value of new sort order selected
-//
+/**
+ * Callback that is an instance function of the window class to encapsulate function
+ *
+ * @precondition none
+ * @postcondition getSortOrder() == value of new sort order selected
+*/
 void MovieLibraryWindow::sortingMethodChanged()
 {
     this->setSortOrderBasedOnSelection();
 }
 
-//
-// Callback when the Load button is invoked
-//
-// @precondition widget != 0 AND data != 0
-// @postcondition MovieLibraryWindow::getFilename() == file selected by the user
-//
-// @param widget The widget that initiated the callback
-// @param data Any data that was passed with the call back. In this instance, a pointer to the window.
-//
+/**
+ * Callback when the Load button is invoked
+ *
+ * @precondition widget != 0 AND data != 0
+ * @postcondition MovieLibraryWindow::getFilename() == file selected by the user
+ *
+ * @param widget The widget that initiated the callback
+ * @param data Any data that was passed with the call back. In this instance, a pointer to the window.
+*/
 void MovieLibraryWindow::cbLoad(Fl_Widget* widget, void* data)
 {
     MovieLibraryWindow* window = (MovieLibraryWindow*)data;
@@ -148,17 +147,17 @@ void MovieLibraryWindow::cbLoad(Fl_Widget* widget, void* data)
 
 }
 
-//
-// Callback when the Load button is invoked
-//
-// @precondition type == Fl_File_Chooser type of SINGLE, MULTI, CREATE, or DIRECTORY
-// @postcondition MovieLibraryWindow::getFilename() == file selected by the user
-//
-// @param type Fl_File_Chooser type of SINGLE, MULTI, CREATE, or DIRECTORY
-// @param title Title to display for the file chooser
-//
-// @return The filename the user selected
-//
+/**
+ * Callback when the Load button is invoked
+ *
+ * @precondition type == Fl_File_Chooser type of SINGLE, MULTI, CREATE, or DIRECTORY
+ * @postcondition MovieLibraryWindow::getFilename() == file selected by the user
+ *
+ * @param type Fl_File_Chooser type of SINGLE, MULTI, CREATE, or DIRECTORY
+ * @param title Title to display for the file chooser
+ *
+ * @return The filename the user selected
+*/
 const string MovieLibraryWindow::promptUserForFilename(int type, const string& title)
 {
     Fl_File_Chooser chooser(".", "*", type, title.c_str());

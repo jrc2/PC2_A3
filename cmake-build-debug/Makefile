@@ -150,33 +150,6 @@ Model/Movie.cpp.s:
 	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/Movie.cpp.s
 .PHONY : Model/Movie.cpp.s
 
-Model/ratings.o: Model/ratings.cpp.o
-
-.PHONY : Model/ratings.o
-
-# target to build an object file
-Model/ratings.cpp.o:
-	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/ratings.cpp.o
-.PHONY : Model/ratings.cpp.o
-
-Model/ratings.i: Model/ratings.cpp.i
-
-.PHONY : Model/ratings.i
-
-# target to preprocess a source file
-Model/ratings.cpp.i:
-	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/ratings.cpp.i
-.PHONY : Model/ratings.cpp.i
-
-Model/ratings.s: Model/ratings.cpp.s
-
-.PHONY : Model/ratings.s
-
-# target to generate assembly for a file
-Model/ratings.cpp.s:
-	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/ratings.cpp.s
-.PHONY : Model/ratings.cpp.s
-
 Utils/Utils.o: Utils/Utils.cpp.o
 
 .PHONY : Utils/Utils.o
@@ -351,9 +324,6 @@ help:
 	@echo "... Model/Movie.o"
 	@echo "... Model/Movie.i"
 	@echo "... Model/Movie.s"
-	@echo "... Model/ratings.o"
-	@echo "... Model/ratings.i"
-	@echo "... Model/ratings.s"
 	@echo "... Utils/Utils.o"
 	@echo "... Utils/Utils.i"
 	@echo "... Utils/Utils.s"
