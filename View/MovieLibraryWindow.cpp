@@ -11,6 +11,8 @@
 
 #ifdef DIAGNOSTIC_OUTPUT
 #include <iostream>
+#include <fstream>
+
 #endif
 
 namespace view
@@ -141,8 +143,12 @@ void MovieLibraryWindow::cbLoad(Fl_Widget* widget, void* data)
     MovieLibraryWindow* window = (MovieLibraryWindow*)data;
     window->promptUserForFilename(Fl_File_Chooser::SINGLE, "Movie file to load");
 
+    ifstream ifs(window->getFilename());
+    string content;
+    content.assign((istreambuf_iterator<char>(ifs)),istreambuf_iterator<char>());
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Filename selected: " << window->getFilename() << endl;
+    cout << "Content: " << content << endl;
 #endif
 
 }
