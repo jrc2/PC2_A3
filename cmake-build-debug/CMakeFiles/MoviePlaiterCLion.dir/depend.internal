@@ -4,6 +4,10 @@
 CMakeFiles/MoviePlaiterCLion.dir/Model/Movie.cpp.o
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.cpp
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o
+ /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
+ /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieLibrary.cpp
+ /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieLibrary.h
 CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/Utils/Utils.cpp
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/Utils/Utils.h
@@ -19,6 +23,7 @@ CMakeFiles/MoviePlaiterCLion.dir/View/DeleteMovieWindow.cpp.o
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/OKCancelWindow.h
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o
  ../Model/Movie.h
+ ../Model/MovieLibrary.h
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/AddMovieWindow.h
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/DeleteMovieWindow.h
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/MovieLibraryWindow.cpp
@@ -28,5 +33,7 @@ CMakeFiles/MoviePlaiterCLion.dir/View/OKCancelWindow.cpp.o
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/OKCancelWindow.cpp
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/OKCancelWindow.h
 CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o
+ ../Model/Movie.h
+ ../Model/MovieLibrary.h
  ../View/MovieLibraryWindow.h
  /home/csuser/Documents/code/A3/MoviePlaiterCLion/main.cpp

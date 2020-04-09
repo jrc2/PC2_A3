@@ -10,6 +10,12 @@
 string
 -
 
+../Model/MovieLibrary.h
+vector
+-
+Movie.h
+../Model/Movie.h
+
 ../View/MovieLibraryWindow.h
 FL/Fl.H
 -
@@ -31,6 +37,28 @@ vector
 -
 string
 -
+MovieLibrary.h
+../View/MovieLibrary.h
+
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
+string
+-
+
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieLibrary.cpp
+MovieLibrary.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieLibrary.h
+string
+-
+sstream
+-
+iostream
+-
+
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieLibrary.h
+vector
+-
+Movie.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
 
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/AddMovieWindow.h
 OKCancelWindow.h
@@ -55,6 +83,8 @@ DeleteMovieWindow.h
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/DeleteMovieWindow.h
 AddMovieWindow.h
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/AddMovieWindow.h
+MovieLibrary.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/MovieLibrary.h
 FL/fl_types.h
 -
 Fl/fl_draw.H
@@ -87,6 +117,8 @@ vector
 -
 string
 -
+MovieLibrary.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/MovieLibrary.h
 
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/OKCancelWindow.h
 Fl/Fl_Window.H

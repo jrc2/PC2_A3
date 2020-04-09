@@ -17,7 +17,7 @@ private:
 
 public:
     void addMovie(Movie &movie);
-    void importFromCSV(string &csvContent);
+    static void importFromCSV(string &csvContent);
     const vector<Movie> &getMovies() const;
 
 };

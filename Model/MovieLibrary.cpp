@@ -1,5 +1,9 @@
 #include "MovieLibrary.h"
 
+#include <string>
+#include <sstream>
+#include <iostream>
+
 using namespace std;
 
 namespace model
@@ -19,7 +23,8 @@ namespace model
      *
      * @param movie the movie to add
      */
-    void MovieLibrary::addMovie(Movie &movie) {
+    void MovieLibrary::addMovie(Movie &movie)
+    {
         this->movies.push_back(movie);
     }
 
@@ -31,8 +36,16 @@ namespace model
      *
      * @param csvContent the string representation of content from the loaded CSV
      */
-    void MovieLibrary::importFromCSV(string &csvContent) {
+    void MovieLibrary::importFromCSV(string &csvContent)
+    {
+        stringstream contentStream;
+        contentStream << csvContent;
+        string temp;
 
+        while(getline(contentStream, temp, '\n'))
+        {
+            cout << "LINE: " << temp << endl;
+        }
     }
 
     /**
@@ -43,7 +56,8 @@ namespace model
      *
      * @return the vector of movies in library
      */
-    const vector<Movie> &MovieLibrary::getMovies() const {
+    const vector<Movie> &MovieLibrary::getMovies() const
+    {
         return this->movies;
     }
 }

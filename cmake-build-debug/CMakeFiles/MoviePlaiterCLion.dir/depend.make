@@ -4,6 +4,10 @@
 CMakeFiles/MoviePlaiterCLion.dir/Model/Movie.cpp.o: ../Model/Movie.cpp
 CMakeFiles/MoviePlaiterCLion.dir/Model/Movie.cpp.o: ../Model/Movie.h
 
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/Movie.h
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/MovieLibrary.cpp
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/MovieLibrary.h
+
 CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o: ../Utils/Utils.cpp
 CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o: ../Utils/Utils.h
 
@@ -18,6 +22,7 @@ CMakeFiles/MoviePlaiterCLion.dir/View/DeleteMovieWindow.cpp.o: ../View/DeleteMov
 CMakeFiles/MoviePlaiterCLion.dir/View/DeleteMovieWindow.cpp.o: ../View/OKCancelWindow.h
 
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../Model/Movie.h
+CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../Model/MovieLibrary.h
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../View/AddMovieWindow.h
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../View/DeleteMovieWindow.h
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../View/MovieLibraryWindow.cpp
@@ -27,6 +32,8 @@ CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../View/OKCancel
 CMakeFiles/MoviePlaiterCLion.dir/View/OKCancelWindow.cpp.o: ../View/OKCancelWindow.cpp
 CMakeFiles/MoviePlaiterCLion.dir/View/OKCancelWindow.cpp.o: ../View/OKCancelWindow.h
 
+CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../Model/Movie.h
+CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../Model/MovieLibrary.h
 CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../View/MovieLibraryWindow.h
 CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../main.cpp
 

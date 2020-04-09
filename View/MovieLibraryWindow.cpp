@@ -2,6 +2,7 @@
 
 #include "DeleteMovieWindow.h"
 #include "AddMovieWindow.h"
+#include "MovieLibrary.h"
 
 #include <FL/fl_types.h>
 #include <Fl/fl_draw.H>
@@ -146,9 +147,10 @@ void MovieLibraryWindow::cbLoad(Fl_Widget* widget, void* data)
     ifstream movieFile(window->getFilename());
     string movieFileContent;
     movieFileContent.assign((istreambuf_iterator<char>(movieFile)), istreambuf_iterator<char>());
+
+    library.importFromCSV(movieFileContent);
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Filename selected: " << window->getFilename() << endl;
-    cout << "Content: " << movieFileContent << endl;
 #endif
 
 }

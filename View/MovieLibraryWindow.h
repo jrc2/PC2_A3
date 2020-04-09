@@ -13,6 +13,8 @@
 
 #include <vector>
 #include <string>
+#include "MovieLibrary.h"
+
 using namespace std;
 
 namespace view
@@ -54,6 +56,8 @@ private:
     Fl_Button* deleteButton;
 
     string selectedFilename;
+
+    static model::MovieLibrary library;
 
     void createAndDisplaySortingRadioButtons();
     void setSortOrderBasedOnSelection();
