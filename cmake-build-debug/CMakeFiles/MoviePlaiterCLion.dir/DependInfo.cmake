@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.cpp" "/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles/MoviePlaiterCLion.dir/Model/Movie.cpp.o"
+  "/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieLibrary.cpp" "/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o"
   "/home/csuser/Documents/code/A3/MoviePlaiterCLion/Utils/Utils.cpp" "/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o"
   "/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/AddMovieWindow.cpp" "/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles/MoviePlaiterCLion.dir/View/AddMovieWindow.cpp.o"
   "/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/DeleteMovieWindow.cpp" "/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles/MoviePlaiterCLion.dir/View/DeleteMovieWindow.cpp.o"

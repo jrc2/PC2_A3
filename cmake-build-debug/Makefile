@@ -150,6 +150,33 @@ Model/Movie.cpp.s:
 	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/Movie.cpp.s
 .PHONY : Model/Movie.cpp.s
 
+Model/MovieLibrary.o: Model/MovieLibrary.cpp.o
+
+.PHONY : Model/MovieLibrary.o
+
+# target to build an object file
+Model/MovieLibrary.cpp.o:
+	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o
+.PHONY : Model/MovieLibrary.cpp.o
+
+Model/MovieLibrary.i: Model/MovieLibrary.cpp.i
+
+.PHONY : Model/MovieLibrary.i
+
+# target to preprocess a source file
+Model/MovieLibrary.cpp.i:
+	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.i
+.PHONY : Model/MovieLibrary.cpp.i
+
+Model/MovieLibrary.s: Model/MovieLibrary.cpp.s
+
+.PHONY : Model/MovieLibrary.s
+
+# target to generate assembly for a file
+Model/MovieLibrary.cpp.s:
+	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.s
+.PHONY : Model/MovieLibrary.cpp.s
+
 Utils/Utils.o: Utils/Utils.cpp.o
 
 .PHONY : Utils/Utils.o
@@ -324,6 +351,9 @@ help:
 	@echo "... Model/Movie.o"
 	@echo "... Model/Movie.i"
 	@echo "... Model/Movie.s"
+	@echo "... Model/MovieLibrary.o"
+	@echo "... Model/MovieLibrary.i"
+	@echo "... Model/MovieLibrary.s"
 	@echo "... Utils/Utils.o"
 	@echo "... Utils/Utils.i"
 	@echo "... Utils/Utils.s"

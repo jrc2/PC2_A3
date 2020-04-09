@@ -20,7 +20,7 @@ add_executable(MoviePlaiterCLion
         View/MovieLibraryWindow.h
         View/OKCancelWindow.cpp
         View/OKCancelWindow.h
-        main.cpp)
+        main.cpp Model/MovieLibrary.cpp Model/MovieLibrary.h)
 
 set(FLTK_SKIP_FLUID true)
 find_package(FLTK REQUIRED)
