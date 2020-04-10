@@ -14,23 +14,24 @@ class MovieNode
 {
 private:
     Movie *movieInfo;
-    string *nextName;
-    int nextLength;
-    int nextRating;
+    MovieNode *nextName;
+    MovieNode *nextLength;
+    MovieNode *nextRating;
 
 public:
-    MovieNode(Movie *movieInfo, string *nextName, int nextLength, int nextRating);
+    virtual ~MovieNode();
+    MovieNode(Movie *movieInfo);
 
     // getters
     Movie * getMovieInfo();
-    string * getNextName();
-    int getNextLength();
-    int getNextRating();
+    MovieNode * getNextName();
+    MovieNode * getNextLength();
+    MovieNode * getNextRating();
 
     // setters
-    void setNextName(string *nextName);
-    void setNextLength(int nextLength);
-    void setNextRating(int nextRating);
+    void setNextName(MovieNode *nextName);
+    void setNextLength(MovieNode *nextLength);
+    void setNextRating(MovieNode *nextRating);
 
 };
 }

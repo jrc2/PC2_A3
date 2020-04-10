@@ -28,6 +28,7 @@ namespace model
     void MovieLibrary::addMovie(Movie *pMovie)
     {
         this->movies.push_back(pMovie); //TODO likely temporary
+        //TODO add to plaited list here
     }
 
     /**
