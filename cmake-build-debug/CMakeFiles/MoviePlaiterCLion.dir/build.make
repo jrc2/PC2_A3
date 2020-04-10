@@ -161,6 +161,32 @@ CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieLibrary.cpp -o CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.s
 
+CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: CMakeFiles/MoviePlaiterCLion.dir/flags.make
+CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Model/MoviePlaitedList.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o -c /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.cpp
+
+CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.cpp > CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.i
+
+CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.cpp -o CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.s
+
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o: CMakeFiles/MoviePlaiterCLion.dir/flags.make
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o: ../Model/MovieNode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o -c /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.cpp
+
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.cpp > CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.i
+
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.cpp -o CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.s
+
 # Object files for target MoviePlaiterCLion
 MoviePlaiterCLion_OBJECTS = \
 "CMakeFiles/MoviePlaiterCLion.dir/Model/Movie.cpp.o" \
@@ -170,7 +196,9 @@ MoviePlaiterCLion_OBJECTS = \
 "CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o" \
 "CMakeFiles/MoviePlaiterCLion.dir/View/OKCancelWindow.cpp.o" \
 "CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o" \
-"CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o"
+"CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o" \
+"CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o" \
+"CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o"
 
 # External object files for target MoviePlaiterCLion
 MoviePlaiterCLion_EXTERNAL_OBJECTS =
@@ -183,13 +211,15 @@ MoviePlaiterCLion: CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.
 MoviePlaiterCLion: CMakeFiles/MoviePlaiterCLion.dir/View/OKCancelWindow.cpp.o
 MoviePlaiterCLion: CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o
 MoviePlaiterCLion: CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o
+MoviePlaiterCLion: CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o
+MoviePlaiterCLion: CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o
 MoviePlaiterCLion: CMakeFiles/MoviePlaiterCLion.dir/build.make
 MoviePlaiterCLion: /usr/lib/x86_64-linux-gnu/libfltk.so
 MoviePlaiterCLion: /usr/lib/x86_64-linux-gnu/libX11.so
 MoviePlaiterCLion: /usr/lib/x86_64-linux-gnu/libXext.so
 MoviePlaiterCLion: /usr/lib/x86_64-linux-gnu/libm.so
 MoviePlaiterCLion: CMakeFiles/MoviePlaiterCLion.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable MoviePlaiterCLion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable MoviePlaiterCLion"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MoviePlaiterCLion.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

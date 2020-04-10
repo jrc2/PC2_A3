@@ -104,6 +104,18 @@
 		<Unit filename="/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieLibrary.h">
 			<Option target="MoviePlaiterCLion"/>
 		</Unit>
+		<Unit filename="/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.cpp">
+			<Option target="MoviePlaiterCLion"/>
+		</Unit>
+		<Unit filename="/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h">
+			<Option target="MoviePlaiterCLion"/>
+		</Unit>
+		<Unit filename="/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.cpp">
+			<Option target="MoviePlaiterCLion"/>
+		</Unit>
+		<Unit filename="/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.h">
+			<Option target="MoviePlaiterCLion"/>
+		</Unit>
 		<Unit filename="/home/csuser/Documents/code/A3/MoviePlaiterCLion/Utils/Utils.cpp">
 			<Option target="MoviePlaiterCLion"/>
 		</Unit>

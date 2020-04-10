@@ -13,14 +13,14 @@ class MovieLibrary
 {
 
 private:
-    vector<Movie> movies;
+    vector<Movie *> movies;
 
-    void addMovie(Movie &movie);
-    void addMovieFromString(string &movieInfo);
+    void addMovieFromString(const string &movieInfo);
 
 public:
-    void importFromCSV(string &csvContent);
-    const vector<Movie> &getMovies();
+    void addMovie(Movie *pMovie);
+    void importFromCSV(const string &csvContent);
+    const vector<Movie *> &getMovies();
 
 };
 

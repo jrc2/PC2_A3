@@ -17,9 +17,17 @@ namespace model
      * @author John Chittam
      */
 
-    void MovieLibrary::addMovie(Movie &movie)
+    /**
+     * Adds the given Movie pointer to the library
+     *
+     * @precondition none
+     * @postcondition this->movies.size()==this->movies.size()@prev-1
+     *
+     * @param pMovie the Movie pointer to add
+     */
+    void MovieLibrary::addMovie(Movie *pMovie)
     {
-        this->movies.push_back(movie);
+        this->movies.push_back(pMovie); //TODO likely temporary
     }
 
     /**
@@ -30,7 +38,7 @@ namespace model
      *
      * @param csvContent the string representation of content from the loaded CSV
      */
-    void MovieLibrary::importFromCSV(string &csvContent)
+    void MovieLibrary::importFromCSV(const string &csvContent)
     {
         stringstream contentStream(csvContent);
         string line;
@@ -41,7 +49,7 @@ namespace model
         }
     }
 
-    void MovieLibrary::addMovieFromString(string &movieInfo)
+    void MovieLibrary::addMovieFromString(const string &movieInfo)
     {
         stringstream movieInfoStream(movieInfo);
         string movieInfoArray[5];
@@ -57,10 +65,10 @@ namespace model
         string title = movieInfoArray[0];
         string studio = movieInfoArray[1];
         int year = toInt(movieInfoArray[2], "Year field is not a number");
-        Movie::Rating rating = Movie::generateRatingFromString(movieInfoArray[3]);
+        Movie::Rating rating = returnRatingBasedOnString(movieInfoArray[3]);
         int length = toInt(movieInfoArray[4], "Length field is not a number");
-        Movie movie = Movie(title, studio, year, rating, length);
-        this->addMovie(movie);
+        Movie *pMovie = new Movie(title, studio, year, rating, length);
+        this->addMovie(pMovie);
     }
 
     /**
@@ -71,7 +79,7 @@ namespace model
      *
      * @return the vector of movies in library
      */
-    const vector<Movie> &MovieLibrary::getMovies()
+    const vector<Movie *> &MovieLibrary::getMovies()
     {
         return this->movies;
     }

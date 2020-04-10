@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MoviePlaiterCLion.dir/Model/Movie.cpp.o"
   "CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o"
+  "CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o"
+  "CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o"
   "CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o"
   "CMakeFiles/MoviePlaiterCLion.dir/View/AddMovieWindow.cpp.o"
   "CMakeFiles/MoviePlaiterCLion.dir/View/DeleteMovieWindow.cpp.o"

@@ -45,3 +45,27 @@ int toInt(const string& text, const char* errorMessage)
     return value;
 
 }
+
+model::Movie::Rating returnRatingBasedOnString(string &rating)
+{
+    rating = toUpperCase(rating);
+
+    if (rating == ENUM_TO_STR(G))
+    {
+        return model::Movie::Rating::G;
+    }
+    else if (rating == ENUM_TO_STR(PG))
+    {
+        return model::Movie::Rating::PG;
+    }
+    else if (rating == ENUM_TO_STR(PG13))
+    {
+        return model::Movie::Rating::PG13;
+    }
+    else if (rating == ENUM_TO_STR(R))
+    {
+        return model::Movie::Rating::R;
+    }
+
+    return model::Movie::Rating::NOT_RATED;
+}

@@ -177,6 +177,60 @@ Model/MovieLibrary.cpp.s:
 	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.s
 .PHONY : Model/MovieLibrary.cpp.s
 
+Model/MovieNode.o: Model/MovieNode.cpp.o
+
+.PHONY : Model/MovieNode.o
+
+# target to build an object file
+Model/MovieNode.cpp.o:
+	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o
+.PHONY : Model/MovieNode.cpp.o
+
+Model/MovieNode.i: Model/MovieNode.cpp.i
+
+.PHONY : Model/MovieNode.i
+
+# target to preprocess a source file
+Model/MovieNode.cpp.i:
+	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.i
+.PHONY : Model/MovieNode.cpp.i
+
+Model/MovieNode.s: Model/MovieNode.cpp.s
+
+.PHONY : Model/MovieNode.s
+
+# target to generate assembly for a file
+Model/MovieNode.cpp.s:
+	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.s
+.PHONY : Model/MovieNode.cpp.s
+
+Model/MoviePlaitedList.o: Model/MoviePlaitedList.cpp.o
+
+.PHONY : Model/MoviePlaitedList.o
+
+# target to build an object file
+Model/MoviePlaitedList.cpp.o:
+	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o
+.PHONY : Model/MoviePlaitedList.cpp.o
+
+Model/MoviePlaitedList.i: Model/MoviePlaitedList.cpp.i
+
+.PHONY : Model/MoviePlaitedList.i
+
+# target to preprocess a source file
+Model/MoviePlaitedList.cpp.i:
+	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.i
+.PHONY : Model/MoviePlaitedList.cpp.i
+
+Model/MoviePlaitedList.s: Model/MoviePlaitedList.cpp.s
+
+.PHONY : Model/MoviePlaitedList.s
+
+# target to generate assembly for a file
+Model/MoviePlaitedList.cpp.s:
+	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.s
+.PHONY : Model/MoviePlaitedList.cpp.s
+
 Utils/Utils.o: Utils/Utils.cpp.o
 
 .PHONY : Utils/Utils.o
@@ -354,6 +408,12 @@ help:
 	@echo "... Model/MovieLibrary.o"
 	@echo "... Model/MovieLibrary.i"
 	@echo "... Model/MovieLibrary.s"
+	@echo "... Model/MovieNode.o"
+	@echo "... Model/MovieNode.i"
+	@echo "... Model/MovieNode.s"
+	@echo "... Model/MoviePlaitedList.o"
+	@echo "... Model/MoviePlaitedList.i"
+	@echo "... Model/MoviePlaitedList.s"
 	@echo "... Utils/Utils.o"
 	@echo "... Utils/Utils.i"
 	@echo "... Utils/Utils.s"

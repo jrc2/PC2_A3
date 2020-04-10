@@ -10,6 +10,7 @@ CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/Movie.h
 CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/MovieLibrary.cpp
 CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/MovieLibrary.h
 
+CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o: ../Model/Movie.h
 CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o: ../Utils/Utils.cpp
 CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o: ../Utils/Utils.h
 

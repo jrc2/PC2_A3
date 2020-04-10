@@ -39,7 +39,7 @@ AddMovieWindow::AddMovieWindow() : OKCancelWindow(330, 215, "Movie to add")
 // The instance handler when OK is invoked
 //
 // @precondition none
-// @postcondition getMovie() == movie object created from data user entered
+// @postcondition getMovieInfo() == movie object created from data user entered
 //
 void AddMovieWindow::okHandler()
 {
@@ -66,28 +66,8 @@ void AddMovieWindow::okHandler()
 Movie::Rating AddMovieWindow::determineAndSetRatingBasedOnUserInput()
 {
     string ratingEntered = this->ratingInput->value();
-    ratingEntered = toUpperCase(ratingEntered);
 
-    Movie::Rating rating = Movie::Rating::NOT_RATED;
-
-    if (ratingEntered == ENUM_TO_STR(G))
-    {
-        rating = Movie::Rating::G;
-    }
-    else if (ratingEntered == ENUM_TO_STR(PG))
-    {
-        rating = Movie::Rating::PG;
-    }
-    else if (ratingEntered == ENUM_TO_STR(PG13))
-    {
-        rating = Movie::Rating::PG13;
-    }
-    else if (ratingEntered == ENUM_TO_STR(R))
-    {
-        rating = Movie::Rating::R;
-    }
-
-    return rating;
+    return returnRatingBasedOnString(ratingEntered);
 }
 
 int AddMovieWindow::determineAndSetYearBasedOnUserInput()
@@ -109,7 +89,7 @@ int AddMovieWindow::determineAndSetLengthBasedOnUserInput()
 // The instance handler when cancel is invoked
 //
 // @precondition none
-// @postcondition getMovie() == 0
+// @postcondition getMovieInfo() == 0
 //
 void AddMovieWindow::cancelHandler()
 {

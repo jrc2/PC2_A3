@@ -74,12 +74,12 @@ preinstall:
 CMakeFiles/MoviePlaiterCLion.dir/all:
 	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/depend
 	$(MAKE) -f CMakeFiles/MoviePlaiterCLion.dir/build.make CMakeFiles/MoviePlaiterCLion.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target MoviePlaiterCLion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target MoviePlaiterCLion"
 .PHONY : CMakeFiles/MoviePlaiterCLion.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MoviePlaiterCLion.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MoviePlaiterCLion.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csuser/Documents/code/A3/MoviePlaiterCLion/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/MoviePlaiterCLion.dir/rule
