@@ -17,11 +17,14 @@ private:
     MovieNode *lengthHead;
     MovieNode *ratingHead;
 
-    void insertByName(MovieNode *node);
+    void insertByName(MovieNode *nodeToAdd);
     void insertByLength(MovieNode *node);
     void insertByRating(MovieNode *node);
 
 public:
+    //constructor
+    MoviePlaitedList();
+
     void insertMovie(Movie *pMovie);
 
     // destructor

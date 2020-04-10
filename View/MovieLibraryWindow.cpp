@@ -246,7 +246,7 @@ void MovieLibraryWindow::cbAddMovie(Fl_Widget* widget, void* data)
     {
         Movie* pMovie = addMovie.getMovie();
 #ifdef DIAGNOSTIC_OUTPUT
-        cout << "ADDING:" << endl;
+        cout << "ADDING from add window:" << endl;
         cout << "Name: " << pMovie->getName() << endl;
         cout << "Studio: " << pMovie->getStudio() << endl;
         cout << "Year: " << pMovie->getYear() << endl;

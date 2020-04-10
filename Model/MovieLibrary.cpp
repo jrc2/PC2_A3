@@ -27,8 +27,7 @@ namespace model
      */
     void MovieLibrary::addMovie(Movie *pMovie)
     {
-        this->movies.push_back(pMovie); //TODO likely temporary
-        //TODO add to plaited list here
+        this->movies.insertMovie(pMovie);
     }
 
     /**
@@ -80,7 +79,7 @@ namespace model
      *
      * @return the vector of movies in library
      */
-    const vector<Movie *> &MovieLibrary::getMovies()
+    MoviePlaitedList & MovieLibrary::getMovies()
     {
         return this->movies;
     }

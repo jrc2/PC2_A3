@@ -3,8 +3,10 @@
 
 #include <vector>
 #include "Movie.h"
+#include "MoviePlaitedList.h"
 
 using namespace std;
+using namespace model;
 
 namespace model
 {
@@ -13,14 +15,14 @@ class MovieLibrary
 {
 
 private:
-    vector<Movie *> movies;
+    MoviePlaitedList movies;
 
     void addMovieFromString(const string &movieInfo);
 
 public:
     void addMovie(Movie *pMovie);
     void importFromCSV(const string &csvContent);
-    const vector<Movie *> &getMovies();
+    MoviePlaitedList & getMovies();
 
 };
 

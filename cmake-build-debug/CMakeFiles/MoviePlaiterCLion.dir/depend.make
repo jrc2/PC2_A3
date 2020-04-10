@@ -9,6 +9,17 @@ CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Utils/Utils.h
 CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/Movie.h
 CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/MovieLibrary.cpp
 CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/MovieLibrary.h
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/MovieNode.h
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieLibrary.cpp.o: ../Model/MoviePlaitedList.h
+
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o: ../Model/Movie.h
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o: ../Model/MovieNode.cpp
+CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o: ../Model/MovieNode.h
+
+CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Model/Movie.h
+CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Model/MovieNode.h
+CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Model/MoviePlaitedList.cpp
+CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Model/MoviePlaitedList.h
 
 CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o: ../Model/Movie.h
 CMakeFiles/MoviePlaiterCLion.dir/Utils/Utils.cpp.o: ../Utils/Utils.cpp
@@ -26,6 +37,8 @@ CMakeFiles/MoviePlaiterCLion.dir/View/DeleteMovieWindow.cpp.o: ../View/OKCancelW
 
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../Model/Movie.h
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../Model/MovieLibrary.h
+CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../Model/MovieNode.h
+CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../Model/MoviePlaitedList.h
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../View/AddMovieWindow.h
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../View/DeleteMovieWindow.h
 CMakeFiles/MoviePlaiterCLion.dir/View/MovieLibraryWindow.cpp.o: ../View/MovieLibraryWindow.cpp
@@ -37,6 +50,8 @@ CMakeFiles/MoviePlaiterCLion.dir/View/OKCancelWindow.cpp.o: ../View/OKCancelWind
 
 CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../Model/Movie.h
 CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../Model/MovieLibrary.h
+CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../Model/MovieNode.h
+CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../Model/MoviePlaitedList.h
 CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../View/MovieLibraryWindow.h
 CMakeFiles/MoviePlaiterCLion.dir/main.cpp.o: ../main.cpp
 

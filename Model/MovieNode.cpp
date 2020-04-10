@@ -9,6 +9,9 @@ namespace model
     MovieNode::MovieNode(Movie *movieInfo)
     {
         this->movieInfo = movieInfo;
+        this->nextName = nullptr;
+        this->nextLength = nullptr;
+        this->nextRating = nullptr;
     }
 
     /**
@@ -17,7 +20,7 @@ namespace model
     */
     Movie * MovieNode::getMovieInfo()
     {
-        this->movieInfo;
+        return this->movieInfo;
     }
 
     /**

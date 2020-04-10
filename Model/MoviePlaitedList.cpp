@@ -1,21 +1,54 @@
+#include <iostream>
 #include "MoviePlaitedList.h"
 
 namespace model
 {
     /**
      * TODO
+     */
+    MoviePlaitedList::MoviePlaitedList()
+    {
+        this->nameHead = nullptr;
+        this->lengthHead = nullptr;
+        this->ratingHead = nullptr;
+    }
+
+    /**
+     * TODO
      * @param pMovie
      */
-    void MoviePlaitedList::insertMovie(model::Movie *pMovie)
+    void MoviePlaitedList::insertMovie(Movie *pMovie)
     {
         //create movie node
         MovieNode *node = new MovieNode(pMovie);
-        //call insert by name, insert by rating, insert by length
+        this->insertByName(node);
+        //call insert by rating, insert by length
     }
 
-    void MoviePlaitedList::insertByName(MovieNode *node)
+    void MoviePlaitedList::insertByName(MovieNode *nodeToAdd)
     {
-        //TODO insert where name goes
+        if (this->nameHead == nullptr)
+        {
+            this->nameHead = nodeToAdd;
+            return;
+        }
+        string newMovieName = nodeToAdd->getMovieInfo()->getName();
+        MovieNode *newPrev = this->nameHead;
+        MovieNode *newNext = this->nameHead->getNextName();
+        while (newNext != nullptr)
+        {
+            if (newMovieName > newPrev->getMovieInfo()->getName() && newMovieName < newNext->getMovieInfo()->getName())
+            {
+                newPrev->setNextName(nodeToAdd);
+                nodeToAdd->setNextName(newNext);
+                return;
+            }
+
+            newPrev = newNext;
+            newNext = newNext->getNextName();
+        }
+
+        newPrev->setNextName(nodeToAdd);
     }
 
     void MoviePlaitedList::insertByLength(MovieNode *node)
