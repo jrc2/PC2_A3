@@ -20,25 +20,26 @@ const string toUpperCase(string text)
     return text;
 }
 
-//
-// Converts passed in string to an int
-//
-// @precondition none
-// @postcondition none
-// @throws Exception if text cannot be converted to an int
-//
-// @param text text to convert to an int
-// @param errorMessage message thrown if a problem occurs when converting text to an int
-//
-// @return text converted to an int
-//
+/**
+ * Converts passed in string to an int
+ *
+ * @precondition none
+ * @postcondition none
+ *
+ * @throws Exception if text cannot be converted to an int
+ *
+ * @param text text to convert to an int
+ * @param errorMessage message thrown if a problem occurs when converting text to an int
+ *
+ * @return text converted to an int
+*/
 int toInt(const string& text, const char* errorMessage)
 {
     istringstream streamConversion(text);
     int value = 0;
     if (!(streamConversion >> value))
     {
-        throw errorMessage;
+        throw invalid_argument(errorMessage);
     }
 
     return value;

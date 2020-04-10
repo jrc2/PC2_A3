@@ -15,10 +15,12 @@ class MovieLibrary
 private:
     vector<Movie> movies;
 
-public:
     void addMovie(Movie &movie);
-    static void importFromCSV(string &csvContent);
-    const vector<Movie> &getMovies() const;
+    void addMovieFromString(string &movieInfo);
+
+public:
+    void importFromCSV(string &csvContent);
+    const vector<Movie> &getMovies();
 
 };
 

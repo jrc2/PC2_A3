@@ -148,7 +148,7 @@ void MovieLibraryWindow::cbLoad(Fl_Widget* widget, void* data)
     string movieFileContent;
     movieFileContent.assign((istreambuf_iterator<char>(movieFile)), istreambuf_iterator<char>());
 
-    library.importFromCSV(movieFileContent);
+    window->library.importFromCSV(movieFileContent);
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Filename selected: " << window->getFilename() << endl;
 #endif

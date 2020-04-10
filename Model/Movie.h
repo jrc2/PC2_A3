@@ -28,6 +28,8 @@ public:
     Movie::Rating getRating() const;
     int getYear() const;
     int getLength() const;
+
+    static Movie::Rating generateRatingFromString(const string &rating);
 };
 
 }

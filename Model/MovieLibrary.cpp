@@ -4,25 +4,19 @@
 #include <sstream>
 #include <iostream>
 
+#include "Utils.h"
+
 using namespace std;
 
 namespace model
 {
 
     /**
-     * MovieLibrary hold all movies
+     * MovieLibrary holds all movies
      *
      * @author John Chittam
      */
 
-    /**
-     * Adds the movie to library
-     *
-     * @precondition none
-     * @postcondition this->movies.size() == this-movies.size()@prev + 1
-     *
-     * @param movie the movie to add
-     */
     void MovieLibrary::addMovie(Movie &movie)
     {
         this->movies.push_back(movie);
@@ -38,14 +32,35 @@ namespace model
      */
     void MovieLibrary::importFromCSV(string &csvContent)
     {
-        stringstream contentStream;
-        contentStream << csvContent;
+        stringstream contentStream(csvContent);
+        string line;
+
+        while (getline(contentStream, line, '\n'))
+        {
+            this->addMovieFromString(line);
+        }
+    }
+
+    void MovieLibrary::addMovieFromString(string &movieInfo)
+    {
+        stringstream movieInfoStream(movieInfo);
+        string movieInfoArray[5];
         string temp;
 
-        while(getline(contentStream, temp, '\n'))
+        int counter = 0;
+        while (getline(movieInfoStream, temp, ','))
         {
-            cout << "LINE: " << temp << endl;
+            movieInfoArray[counter] = temp;
+            counter++;
         }
+
+        string title = movieInfoArray[0];
+        string studio = movieInfoArray[1];
+        int year = toInt(movieInfoArray[2], "Year field is not a number");
+        Movie::Rating rating = Movie::generateRatingFromString(movieInfoArray[3]);
+        int length = toInt(movieInfoArray[4], "Length field is not a number");
+        Movie movie = Movie(title, studio, year, rating, length);
+        this->addMovie(movie);
     }
 
     /**
@@ -56,8 +71,9 @@ namespace model
      *
      * @return the vector of movies in library
      */
-    const vector<Movie> &MovieLibrary::getMovies() const
+    const vector<Movie> &MovieLibrary::getMovies()
     {
         return this->movies;
     }
+
 }

@@ -57,7 +57,7 @@ private:
 
     string selectedFilename;
 
-    static model::MovieLibrary library;
+    model::MovieLibrary library;
 
     void createAndDisplaySortingRadioButtons();
     void setSortOrderBasedOnSelection();
