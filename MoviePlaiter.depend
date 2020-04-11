@@ -38,3 +38,51 @@
 1584559148 source:/home/dyoder/Documents/Code/MoviePlaiter/View/OKCancelWindow.cpp
 	"OKCancelWindow.h"
 
+1586372061 source:/home/csuser/Documents/code/A3/MoviePlaiterCLion/main.cpp
+	"MovieLibraryWindow.h"
+
+1586564070 /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/MovieLibraryWindow.h
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Group.H>
+	<FL/Fl_Round_Button.H>
+	<FL/Fl_Output.H>
+	<FL/Fl_Text_Buffer.H>
+	<FL/Fl_Text_Display.H>
+	<FL/Fl_Button.H>
+	<vector>
+	<string>
+	"MovieLibrary.h"
+
+1586566172 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieLibrary.h
+	<vector>
+	"Movie.h"
+	"MoviePlaitedList.h"
+
+1586565512 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
+	<string>
+
+1586566220 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.h
+	"Movie.h"
+	"MovieNode.h"
+
+1586530524 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
+	<string>
+	"Movie.h"
+
+1584561528 source:/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/DeleteMovieWindow.cpp
+	"DeleteMovieWindow.h"
+	<iostream>
+
+1584561373 /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/DeleteMovieWindow.h
+	"OKCancelWindow.h"
+	<Fl/Fl_Input.H>
+	<string>
+
+1584559154 /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/OKCancelWindow.h
+	<Fl/Fl_Window.H>
+	<Fl/Fl_Button.H>
+
+1584559148 source:/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/OKCancelWindow.cpp
+	"OKCancelWindow.h"
+

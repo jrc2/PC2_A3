@@ -18,8 +18,9 @@ private:
     MovieNode *ratingHead;
 
     void insertByName(MovieNode *nodeToAdd);
-    void insertByLength(MovieNode *node);
-    void insertByRating(MovieNode *node);
+    void insertByLength(MovieNode *nodeToAdd);
+    void insertByRating(MovieNode *nodeToAdd);
+    void addToSummaryByNameAscending(MovieNode *node, string &output);
 
 public:
     //constructor
@@ -27,7 +28,7 @@ public:
 
     void insertMovie(Movie *pMovie);
     bool deleteMovie(const string &movieName);
-    string generateSummaryByName() const;
+    string generateSummaryByNameAscending();
 
     // destructor
     virtual ~MoviePlaitedList();

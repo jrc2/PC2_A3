@@ -45,6 +45,7 @@ namespace model
 
         while (newNext != nullptr)
         {
+            newPrevName = newPrev->getMovieInfo()->getName();
             string newNextName = newNext->getMovieInfo()->getName();
 
             if (newMovieName == newNextName || newMovieName == newPrevName)
@@ -52,7 +53,7 @@ namespace model
                 throw invalid_argument("A movie with name " + newMovieName + " already exists");
             }
 
-            if (newMovieName > newPrevName && newMovieName < newNextName)
+            if (newMovieName.compare(newPrevName) < 0 && newMovieName.compare(newNextName) < 0)
             {
                 newPrev->setNextName(nodeToAdd);
                 nodeToAdd->setNextName(newNext);
@@ -66,12 +67,12 @@ namespace model
         newPrev->setNextName(nodeToAdd);
     }
 
-    void MoviePlaitedList::insertByLength(MovieNode *node)
+    void MoviePlaitedList::insertByLength(MovieNode *nodeToAdd)
     {
         //TODO insert where length goes
     }
 
-    void MoviePlaitedList::insertByRating(MovieNode *node)
+    void MoviePlaitedList::insertByRating(MovieNode *nodeToAdd)
     {
         //TODO insert where rating goes
     }
@@ -111,23 +112,31 @@ namespace model
     }
 
     //TODO doc
-    string MoviePlaitedList::generateSummaryByName() const
+    string MoviePlaitedList::generateSummaryByNameAscending()
     {
         string output;
         MovieNode *currMovieNode = this->nameHead;
-        while (currMovieNode != nullptr)
-        {
-            Movie *movie = currMovieNode->getMovieInfo();
-            const string &name = movie->getName();
-            const string &studio = movie->getStudio();
-            const string &year = to_string(movie->getYear());
-            const string &rating = movie->getRatingString();
-            const string &length = to_string(movie->getLength());
-            output += name + " " + studio + " " + year + " " + rating + " " + length + "\n";
-            currMovieNode = currMovieNode->getNextName(); //TODO make recursive
-        }
+        this->addToSummaryByNameAscending(currMovieNode, output);
 
         return output;
+    }
+
+    void MoviePlaitedList::addToSummaryByNameAscending(MovieNode *node, string &output)
+    {
+        if (node == nullptr)
+        {
+            return;
+        }
+
+        Movie *movie = node->getMovieInfo();
+        const string &name = movie->getName();
+        const string &studio = movie->getStudio();
+        const string &year = to_string(movie->getYear());
+        const string &rating = movie->getRatingString();
+        const string &length = to_string(movie->getLength());
+        output += name + " " + studio + " " + year + " " + rating + " " + length + "\n";
+
+        this->addToSummaryByNameAscending(node->getNextName(), output);
     }
 
     /**

@@ -23,7 +23,7 @@ public:
     void addMovie(Movie *pMovie);
     bool deleteMovie(const string &movieName);
     void importFromCSV(const string &csvContent);
-    string generateSummaryByName() const;
+    string generateSummaryByNameAscending();
 
 };
 

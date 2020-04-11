@@ -67,7 +67,7 @@ namespace model
         int year = toInt(movieInfoArray[2], "Year field is not a number");
         Movie::Rating rating = returnRatingBasedOnString(movieInfoArray[3]);
         int length = toInt(movieInfoArray[4], "Length field is not a number");
-        Movie *pMovie = new Movie(title, studio, year, rating, length);
+        auto *pMovie = new Movie(title, studio, year, rating, length);
         this->addMovie(pMovie);
     }
 
@@ -81,9 +81,9 @@ namespace model
     }
 
     //TODO doc
-    string MovieLibrary::generateSummaryByName() const
+    string MovieLibrary::generateSummaryByNameAscending()
     {
-        return this->movies.generateSummaryByName();
+        return this->movies.generateSummaryByNameAscending();
     }
 
 }

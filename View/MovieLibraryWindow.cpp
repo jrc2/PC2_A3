@@ -331,7 +331,8 @@ void MovieLibraryWindow::setSortOrderBasedOnSelection()
  */
 void MovieLibraryWindow::setSummaryText()
 {
-    string output = this->library.generateSummaryByName();
+    string output = this->library.generateSummaryByNameAscending();
+    //TODO add other orders (based on radio buttons)
     this->summaryOutputTextBuffer->text(output.c_str());
 }
 
