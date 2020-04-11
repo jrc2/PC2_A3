@@ -113,6 +113,7 @@ void MovieLibraryWindow::cbSortingMethodChanged(Fl_Widget* widget, void* data)
 {
     auto* window = (MovieLibraryWindow*)data;
     window->sortingMethodChanged();
+    window->setSummaryText();
 
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Sorting method: " << window->getSortOrder() << endl;
@@ -331,7 +332,15 @@ void MovieLibraryWindow::setSortOrderBasedOnSelection()
  */
 void MovieLibraryWindow::setSummaryText()
 {
-    string output = this->library.generateSummaryByNameAscending();
+    string output;
+    if (this->getSortOrder() == NAME_ASCENDING)
+    {
+        output = this->library.generateSummaryByName(true);
+    }
+    else if (this->getSortOrder() == NAME_DESCENDING)
+    {
+        output = this->library.generateSummaryByName(false);
+    }
     //TODO add other orders (based on radio buttons)
     this->summaryOutputTextBuffer->text(output.c_str());
 }

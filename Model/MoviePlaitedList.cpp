@@ -145,16 +145,16 @@ namespace model
     }
 
     //TODO doc
-    string MoviePlaitedList::generateSummaryByNameAscending()
+    string MoviePlaitedList::generateSummaryByName(bool ascending)
     {
         string output;
         MovieNode *currMovieNode = this->nameHead;
-        this->addToSummaryByNameAscending(currMovieNode, output);
+        this->addToSummaryByName(currMovieNode, output, ascending);
 
         return output;
     }
 
-    void MoviePlaitedList::addToSummaryByNameAscending(MovieNode *node, string &output)
+    void MoviePlaitedList::addToSummaryByName(MovieNode *node, string &output, bool ascending)
     {
         if (node == nullptr)
         {
@@ -167,9 +167,18 @@ namespace model
         const string &year = to_string(movie->getYear());
         const string &rating = movie->getRatingString();
         const string &length = to_string(movie->getLength());
-        output += name + " " + studio + " " + year + " " + rating + " " + length + "\n";
 
-        this->addToSummaryByNameAscending(node->getNextName(), output);
+        if (ascending)
+        {
+            output += name + " " + studio + " " + year + " " + rating + " " + length + "\n";
+        }
+
+        this->addToSummaryByName(node->getNextName(), output, ascending);
+
+        if (!ascending)
+        {
+            output += name + " " + studio + " " + year + " " + rating + " " + length + "\n";
+        }
     }
 
     /**
