@@ -23,6 +23,7 @@ namespace model
     {
         auto *node = new MovieNode(pMovie);
         this->insertByName(node);
+        this->insertByLength(node);
         //TODO call insert by rating, insert by length
     }
 
@@ -52,7 +53,8 @@ namespace model
             next = next->getNextName();
         }
 
-        if ((next != nullptr && toUpperCase(next->getMovieInfo()->getName()) == nameToAdd) || toUpperCase(current->getMovieInfo()->getName()) == nameToAdd)
+        if ((next != nullptr && toUpperCase(next->getMovieInfo()->getName()) == nameToAdd) ||
+                toUpperCase(current->getMovieInfo()->getName()) == nameToAdd)
         {
             return; //TODO return or throw something so error can be shown
         }
@@ -63,7 +65,38 @@ namespace model
 
     void MoviePlaitedList::insertByLength(MovieNode *nodeToAdd)
     {
-        //TODO insert where length goes
+        if (this->lengthHead == nullptr)
+        {
+            this->lengthHead = nodeToAdd;
+            return;
+        }
+
+        int lengthToAdd = nodeToAdd->getMovieInfo()->getLength();
+
+        if (lengthToAdd < this->lengthHead->getMovieInfo()->getLength())
+        {
+            nodeToAdd->setNextLength(this->lengthHead);
+            this->lengthHead = nodeToAdd;
+            return;
+        }
+
+        MovieNode *current = this->lengthHead;
+        MovieNode *next = this->lengthHead->getNextLength();
+
+        while (next != nullptr && lengthToAdd > next->getMovieInfo()->getLength())
+        {
+            current = next;
+            next = next->getNextLength();
+        }
+
+        if ((next != nullptr && next->getMovieInfo()->getLength() == lengthToAdd) ||
+                current->getMovieInfo()->getLength() == lengthToAdd)
+        {
+            return; //TODO return or throw something so error can be shown
+        }
+
+        current->setNextLength(nodeToAdd);
+        nodeToAdd->setNextLength(next);
     }
 
     void MoviePlaitedList::insertByRating(MovieNode *nodeToAdd)
