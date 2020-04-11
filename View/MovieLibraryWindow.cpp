@@ -54,7 +54,7 @@ MovieLibraryWindow::MovieLibraryWindow(int width, int height, const char* title)
     this->deleteButton = new Fl_Button(360, 330, 70, 30, "Delete");
     this->deleteButton->callback(cbDeleteMovie, this);
 
-    this->setSummaryText("Demo of how to set the summary text.");
+    this->setSummaryText();
 
     end();
 }
@@ -111,7 +111,7 @@ void MovieLibraryWindow::createAndDisplaySortingRadioButtons()
 */
 void MovieLibraryWindow::cbSortingMethodChanged(Fl_Widget* widget, void* data)
 {
-    MovieLibraryWindow* window = (MovieLibraryWindow*)data;
+    auto* window = (MovieLibraryWindow*)data;
     window->sortingMethodChanged();
 
 #ifdef DIAGNOSTIC_OUTPUT
@@ -141,7 +141,7 @@ void MovieLibraryWindow::sortingMethodChanged()
 */
 void MovieLibraryWindow::cbLoad(Fl_Widget* widget, void* data)
 {
-    MovieLibraryWindow* window = (MovieLibraryWindow*)data;
+    auto* window = (MovieLibraryWindow*)data;
     window->promptUserForFilename(Fl_File_Chooser::SINGLE, "Movie file to load");
 
     ifstream movieFile(window->getFilename());
@@ -149,6 +149,7 @@ void MovieLibraryWindow::cbLoad(Fl_Widget* widget, void* data)
     movieFileContent.assign((istreambuf_iterator<char>(movieFile)), istreambuf_iterator<char>());
 
     window->library.importFromCSV(movieFileContent);
+    window->setSummaryText();
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Filename selected: " << window->getFilename() << endl;
 #endif
@@ -211,7 +212,7 @@ const string MovieLibraryWindow::getFilename() const
 */
 void MovieLibraryWindow::cbSave(Fl_Widget* widget, void* data)
 {
-    MovieLibraryWindow* window = (MovieLibraryWindow*)data;
+    auto *window = (MovieLibraryWindow*)data;
     window->promptUserForFilename(Fl_File_Chooser::CREATE, "Movie file to save to");
 
 #ifdef DIAGNOSTIC_OUTPUT
@@ -231,7 +232,7 @@ void MovieLibraryWindow::cbSave(Fl_Widget* widget, void* data)
 */
 void MovieLibraryWindow::cbAddMovie(Fl_Widget* widget, void* data)
 {
-    MovieLibraryWindow* window = (MovieLibraryWindow*)data; // TODO Currently, not used by may need to be used when adapt code
+    MovieLibraryWindow* window = (MovieLibraryWindow*)data;
 
     AddMovieWindow addMovie;
     addMovie.set_modal();
@@ -254,6 +255,7 @@ void MovieLibraryWindow::cbAddMovie(Fl_Widget* widget, void* data)
         cout << "Length: " << pMovie->getLength() << endl;
 #endif
         window->library.addMovie(pMovie);
+        window->setSummaryText();
     }
 #ifdef DIAGNOSTIC_OUTPUT
     else
@@ -264,18 +266,18 @@ void MovieLibraryWindow::cbAddMovie(Fl_Widget* widget, void* data)
 
 }
 
-//
-// Callback when the Delete button is invoked
-//
-// @precondition widget != 0 AND data != 0
-// @postcondition none
-//
-// @param widget The widget that initiatied the callback
-// @param data Any data that was passed with the call back. In this instance, a pointer to the window.
-//
+/**
+ * Callback when the Delete button is invoked
+ *
+ * @precondition widget != 0 AND data != 0
+ * @postcondition none
+ *
+ * @param widget The widget that initiatied the callback
+ * @param data Any data that was passed with the call back. In this instance, a pointer to the window.
+*/
 void MovieLibraryWindow::cbDeleteMovie(Fl_Widget* widget, void* data)
 {
-    MovieLibraryWindow* window = (MovieLibraryWindow*)data;
+    auto* window = (MovieLibraryWindow*)data;
 
     DeleteMovieWindow deleteMovie;
     deleteMovie.set_modal();
@@ -286,11 +288,16 @@ void MovieLibraryWindow::cbDeleteMovie(Fl_Widget* widget, void* data)
         Fl::wait();
     }
 
-#ifdef DIAGNOSTIC_OUTPUT
     if (deleteMovie.getWindowResult() == OKCancelWindow::WindowResult::OK)
     {
-        cout << "OK - Movie name: " << deleteMovie.getName() << endl;
+        string movieToDelete = deleteMovie.getName();
+        window->library.deleteMovie(movieToDelete); //TODO check bool result and handle if false
+        window->setSummaryText();
+#ifdef DIAGNOSTIC_OUTPUT
+        cout << "OK - DELETING: " << movieToDelete << endl;
+#endif
     }
+#ifdef DIAGNOSTIC_OUTPUT
     else
     {
         cout << "Cancel or closed window." << endl;
@@ -316,17 +323,16 @@ void MovieLibraryWindow::setSortOrderBasedOnSelection()
     }
 }
 
-//
-// Sets the summary test to display in the movie library summary output
-//
-// @precondition none
-// @postcondition none
-//
-// @param outputText The text to display
-//
-void MovieLibraryWindow::setSummaryText(const string& outputText)
+/**
+ * Generates the summary output text
+ *
+ * @precondition none
+ * @postcondition none
+ */
+void MovieLibraryWindow::setSummaryText()
 {
-    this->summaryOutputTextBuffer->text(outputText.c_str());
+    string output = this->library.generateSummaryByName();
+    this->summaryOutputTextBuffer->text(output.c_str());
 }
 
 //

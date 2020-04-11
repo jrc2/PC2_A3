@@ -21,8 +21,9 @@ private:
 
 public:
     void addMovie(Movie *pMovie);
+    bool deleteMovie(const string &movieName);
     void importFromCSV(const string &csvContent);
-    MoviePlaitedList & getMovies();
+    string generateSummaryByName() const;
 
 };
 

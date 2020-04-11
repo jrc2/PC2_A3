@@ -17,6 +17,7 @@ CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o: ../Model/MovieNode.cpp
 CMakeFiles/MoviePlaiterCLion.dir/Model/MovieNode.cpp.o: ../Model/MovieNode.h
 
 CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Model/Movie.h
+CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Utils/Utils.h
 CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Model/MovieNode.h
 CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Model/MoviePlaitedList.cpp
 CMakeFiles/MoviePlaiterCLion.dir/Model/MoviePlaitedList.cpp.o: ../Model/MoviePlaitedList.h

@@ -81,7 +81,7 @@ public:
 
     MovieLibraryWindow::SortOrder getSortOrder() const;
 
-    void setSummaryText(const string& outputText);
+    void setSummaryText();
 };
 
 }

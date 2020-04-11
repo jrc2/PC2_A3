@@ -5,7 +5,7 @@
 namespace model
 {
     //
-    // TODO: Document this
+    // TODO: Document everything public
     //
     Movie::Movie(const string& name, const string& studio, int year, Rating rating, int length)
     {
@@ -29,6 +29,28 @@ namespace model
     Movie::Rating Movie::getRating() const
     {
         return this->rating;
+    }
+
+    string Movie::getRatingString() const
+    {
+        if (this->rating == G)
+        {
+            return "G";
+        }
+        if (this->rating == PG)
+        {
+            return "PG";
+        }
+        if (this->rating == PG13)
+        {
+            return "PG13";
+        }
+        if (this->rating == R)
+        {
+            return "R";
+        }
+
+        return "NOT RATED";
     }
 
     int Movie::getYear() const

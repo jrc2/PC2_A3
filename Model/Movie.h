@@ -26,6 +26,7 @@ public:
     const string& getName() const;
     const string& getStudio() const;
     Movie::Rating getRating() const;
+    string getRatingString() const;
     int getYear() const;
     int getLength() const;
 };

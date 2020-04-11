@@ -72,16 +72,18 @@ namespace model
     }
 
     /**
-     * Gets the movies in library
-     *
-     * @precondition none
-     * @postcondition none
-     *
-     * @return the vector of movies in library
+     * TODO
+     * @param pMovie
      */
-    MoviePlaitedList & MovieLibrary::getMovies()
+    bool MovieLibrary::deleteMovie(const string &movieName)
     {
-        return this->movies;
+        return this->movies.deleteMovie(movieName);
+    }
+
+    //TODO doc
+    string MovieLibrary::generateSummaryByName() const
+    {
+        return this->movies.generateSummaryByName();
     }
 
 }

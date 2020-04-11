@@ -26,6 +26,8 @@ public:
     MoviePlaitedList();
 
     void insertMovie(Movie *pMovie);
+    bool deleteMovie(const string &movieName);
+    string generateSummaryByName() const;
 
     // destructor
     virtual ~MoviePlaitedList();
