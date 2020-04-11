@@ -24,6 +24,7 @@ public:
     bool deleteMovie(const string &movieName);
     void importFromCSV(const string &csvContent);
     string generateSummaryByName(bool ascending);
+    string generateSummaryByLength(bool ascending);
 
 };
 

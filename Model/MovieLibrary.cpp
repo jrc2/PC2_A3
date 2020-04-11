@@ -86,4 +86,10 @@ namespace model
         return this->movies.generateSummaryByName(ascending);
     }
 
+    //TODO doc
+    string MovieLibrary::generateSummaryByLength(bool ascending)
+    {
+        return this->movies.generateSummaryByLength(ascending);
+    }
+
 }

@@ -333,6 +333,7 @@ void MovieLibraryWindow::setSortOrderBasedOnSelection()
 void MovieLibraryWindow::setSummaryText()
 {
     string output;
+
     if (this->getSortOrder() == NAME_ASCENDING)
     {
         output = this->library.generateSummaryByName(true);
@@ -340,6 +341,14 @@ void MovieLibraryWindow::setSummaryText()
     else if (this->getSortOrder() == NAME_DESCENDING)
     {
         output = this->library.generateSummaryByName(false);
+    }
+    else if (this->getSortOrder() == LENGTH_ASCENDING)
+    {
+        output = this->library.generateSummaryByLength(true);
+    }
+    else if (this->getSortOrder() == LENGTH_DESCENDING)
+    {
+        output = this->library.generateSummaryByLength(false);
     }
     //TODO add other orders (based on radio buttons)
     this->summaryOutputTextBuffer->text(output.c_str());
