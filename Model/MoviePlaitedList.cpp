@@ -12,6 +12,7 @@ namespace model
         this->nameHead = nullptr;
         this->lengthHead = nullptr;
         this->ratingHead = nullptr;
+        this->longestName = 0;
     }
 
     /**
@@ -45,12 +46,15 @@ namespace model
         MovieNode *current = this->nameHead;
         MovieNode *next = this->nameHead->getNextName();
 
-        cout << nameToAdd << endl;
-        cout << toUpperCase(current->getMovieInfo()->getName()) << endl;
         while (next != nullptr && nameToAdd > toUpperCase(next->getMovieInfo()->getName()))
         {
             current = next;
             next = next->getNextName();
+        }
+
+        if ((next != nullptr && toUpperCase(next->getMovieInfo()->getName()) == nameToAdd) || toUpperCase(current->getMovieInfo()->getName()) == nameToAdd)
+        {
+            return; //TODO return or throw something so error can be shown
         }
 
         current->setNextName(nodeToAdd);
@@ -68,9 +72,15 @@ namespace model
     }
 
     //TODO doc
-    bool MoviePlaitedList::deleteMovie(const string &movieName)
+    bool MoviePlaitedList::deleteMovie(const string &movieName) //TODO delete from length and rating strands, handle delete when only one element and it doesnt match
     {
         MovieNode *current = this->nameHead;
+
+        if (current == nullptr)
+        {
+            return false;
+        }
+
         MovieNode *next = this->nameHead->getNextName();
 
         if (current->getMovieInfo()->getName() == movieName)
@@ -134,7 +144,14 @@ namespace model
      */
     MoviePlaitedList::~MoviePlaitedList()
     {
-        //TODO go through one strand only (like name strand) and delete movie node
+        //TODO check this
+        MovieNode *current = this->nameHead;
+        while (current != nullptr)
+        {
+            MovieNode *next = current->getNextName();
+            delete current;
+            current = next;
+        }
     }
 
 }
