@@ -32,39 +32,29 @@ namespace model
             this->nameHead = nodeToAdd;
             return;
         }
-        Movie *newMovie = nodeToAdd->getMovieInfo();
-        const string& newMovieName = newMovie->getName();
-        MovieNode *newPrev = this->nameHead;
-        MovieNode *newNext = this->nameHead->getNextName();
-        string newPrevName = newPrev->getMovieInfo()->getName();
 
-        if (newMovieName == newPrevName)
+        string nameToAdd = toUpperCase(nodeToAdd->getMovieInfo()->getName());
+
+        if (nameToAdd < toUpperCase(this->nameHead->getMovieInfo()->getName()))
         {
-            throw invalid_argument("A movie with name " + newMovieName + " already exists"); //TODO make sure this works
+            nodeToAdd->setNextName(this->nameHead);
+            this->nameHead = nodeToAdd;
+            return;
         }
 
-        while (newNext != nullptr)
+        MovieNode *current = this->nameHead;
+        MovieNode *next = this->nameHead->getNextName();
+
+        cout << nameToAdd << endl;
+        cout << toUpperCase(current->getMovieInfo()->getName()) << endl;
+        while (next != nullptr && nameToAdd > toUpperCase(next->getMovieInfo()->getName()))
         {
-            newPrevName = newPrev->getMovieInfo()->getName();
-            string newNextName = newNext->getMovieInfo()->getName();
-
-            if (newMovieName == newNextName || newMovieName == newPrevName)
-            {
-                throw invalid_argument("A movie with name " + newMovieName + " already exists");
-            }
-
-            if (newMovieName.compare(newPrevName) < 0 && newMovieName.compare(newNextName) < 0)
-            {
-                newPrev->setNextName(nodeToAdd);
-                nodeToAdd->setNextName(newNext);
-                return;
-            }
-
-            newPrev = newNext;
-            newNext = newNext->getNextName();
+            current = next;
+            next = next->getNextName();
         }
 
-        newPrev->setNextName(nodeToAdd);
+        current->setNextName(nodeToAdd);
+        nodeToAdd->setNextName(next);
     }
 
     void MoviePlaitedList::insertByLength(MovieNode *nodeToAdd)
