@@ -71,13 +71,29 @@ namespace model
         this->addMovie(pMovie);
     }
 
-    //TODO doc
+    /**
+     * Deletes the given movie
+     *
+     * @precondition none
+     * @postcondition none
+     *
+     * @param movieName the name of the movie to delete
+     * @return true if the movie existed and was deleted, false if the movie did not exist
+     */
     bool MovieLibrary::deleteMovie(const string &movieName)
     {
         return this->movies.deleteMovie(movieName);
     }
 
-    //TODO doc
+    /**
+     * Generates the summary output, ordered by Movie name
+     *
+     * @precondition none
+     * @postcondition none
+     *
+     * @param ascending set to true to sort ascending by name, false to sort descending
+     * @return the summary output
+     */
     string MovieLibrary::generateSummaryByName(bool ascending)
     {
         string output;
@@ -107,7 +123,15 @@ namespace model
         }
     }
 
-    //TODO doc
+    /**
+     * Generates the summary output, ordered by Movie length
+     *
+     * @precondition none
+     * @postcondition none
+     *
+     * @param ascending set to true to sort ascending by length, false to sort descending
+     * @return the summary output
+     */
     string MovieLibrary::generateSummaryByLength(bool ascending)
     {
         string output;
