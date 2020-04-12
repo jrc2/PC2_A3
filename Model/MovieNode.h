@@ -22,13 +22,11 @@ public:
     virtual ~MovieNode();
     MovieNode(Movie *movieInfo);
 
-    // getters
-    Movie * getMovieInfo();
-    MovieNode * getNextName();
-    MovieNode * getNextLength();
-    MovieNode * getNextRating();
+    Movie *getMovieInfo();
+    MovieNode *getNextName();
+    MovieNode *getNextLength();
+    MovieNode *getNextRating();
 
-    // setters
     void setNextName(MovieNode *nextName);
     void setNextLength(MovieNode *nextLength);
     void setNextRating(MovieNode *nextRating);

@@ -16,6 +16,45 @@ namespace model
     }
 
     /**
+     * Gets nameHead
+     *
+     * @precondition none
+     * @postcondition none
+     *
+     * @return nameHead
+     */
+    MovieNode *MoviePlaitedList::getNameHead()
+    {
+        return this->nameHead;
+    }
+
+    /**
+     * Gets lengthHead
+     *
+     * @precondition none
+     * @postcondition none
+     *
+     * @return lengthHead
+     */
+    MovieNode *MoviePlaitedList::getLengthHead()
+    {
+        return this->lengthHead;
+    }
+
+    /**
+     * Gets ratingHead
+     *
+     * @precondition none
+     * @postcondition none
+     *
+     * @return ratingHead
+     */
+    MovieNode *MoviePlaitedList::getRatingHead()
+    {
+        return this->ratingHead;
+    }
+
+    /**
      * TODO
      * @param pMovie
      */
@@ -142,79 +181,6 @@ namespace model
         current->setNextName(next->getNextName());
         delete next;
         return true;
-    }
-
-    //TODO doc
-    string MoviePlaitedList::generateSummaryByName(bool ascending)
-    {
-        string output;
-        MovieNode *currMovieNode = this->nameHead;
-        this->addToSummaryByName(currMovieNode, output, ascending);
-
-        return output;
-    }
-
-    void MoviePlaitedList::addToSummaryByName(MovieNode *node, string &output, bool ascending)
-    {
-        if (node == nullptr)
-        {
-            return;
-        }
-
-        if (ascending)
-        {
-            output += this->generateSingleMovieSummary(node);
-        }
-
-        this->addToSummaryByName(node->getNextName(), output, ascending);
-
-        if (!ascending)
-        {
-            output += this->generateSingleMovieSummary(node);
-        }
-    }
-
-    //TODO doc
-    string MoviePlaitedList::generateSummaryByLength(bool ascending)
-    {
-        string output;
-        MovieNode *currMovieNode = this->lengthHead;
-        this->addToSummaryByLength(currMovieNode, output, ascending);
-
-        return output;
-    }
-
-    void MoviePlaitedList::addToSummaryByLength(MovieNode *node, string &output, bool ascending)
-    {
-        if (node == nullptr)
-        {
-            return;
-        }
-
-        if (ascending)
-        {
-            output += this->generateSingleMovieSummary(node);
-        }
-
-        this->addToSummaryByLength(node->getNextLength(), output, ascending);
-
-        if (!ascending)
-        {
-            output += this->generateSingleMovieSummary(node);
-        }
-    }
-
-    string MoviePlaitedList::generateSingleMovieSummary(MovieNode *node) const
-    {
-        Movie *movie = node->getMovieInfo();
-        const string &name = movie->getName();
-        const string &studio = movie->getStudio();
-        const string &year = to_string(movie->getYear());
-        const string &rating = movie->getRatingString();
-        const string &length = to_string(movie->getLength());
-        const string &output = name + " " + studio + " " + year + " " + rating + " " + length + "\n";
-
-        return output;
     }
 
     /**

@@ -60,6 +60,14 @@ string
 MovieLibrary.h
 ../View/MovieLibrary.h
 
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.cpp
+stdexcept
+-
+Movie.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
+Utils.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Utils.h
+
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
 string
 -
@@ -84,6 +92,10 @@ Movie.h
 MoviePlaitedList.h
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.h
 
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.cpp
+MovieNode.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
+
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
 string
 -
@@ -103,6 +115,20 @@ Movie.h
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
 MovieNode.h
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
+
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Utils/Utils.cpp
+Utils.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Utils/Utils.h
+algorithm
+-
+sstream
+-
+
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Utils/Utils.h
+string
+-
+Movie.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Utils/Movie.h
 
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/View/AddMovieWindow.h
 OKCancelWindow.h

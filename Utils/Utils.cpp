@@ -33,7 +33,7 @@ const string toUpperCase(string text)
  *
  * @return text converted to an int
 */
-int toInt(const string& text, const char* errorMessage)
+int toInt(const string &text, const char *errorMessage)
 {
     istringstream streamConversion(text);
     int value = 0;

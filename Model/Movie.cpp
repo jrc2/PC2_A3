@@ -7,7 +7,7 @@ namespace model
     //
     // TODO: Document everything public
     //
-    Movie::Movie(const string& name, const string& studio, int year, Rating rating, int length)
+    Movie::Movie(const string &name, const string &studio, int year, Rating rating, int length)
     {
         this->name = name;
         this->studio = studio;
@@ -16,12 +16,12 @@ namespace model
         this->length = length;
     }
 
-    const string& Movie::getName() const
+    const string &Movie::getName() const
     {
         return this->name;
     }
 
-    const string& Movie::getStudio() const
+    const string &Movie::getStudio() const
     {
         return this->studio;
     }

@@ -10,36 +10,37 @@ using namespace model;
 namespace model
 {
 
-class MoviePlaitedList
-{
-private:
-    MovieNode *nameHead;
-    MovieNode *lengthHead;
-    MovieNode *ratingHead;
-    int longestName;
+    class MoviePlaitedList
+    {
+    private:
+        MovieNode *nameHead;
+        MovieNode *lengthHead;
+        MovieNode *ratingHead;
+        int longestName;
 
-    void insertByName(MovieNode *nodeToAdd);
-    void insertByLength(MovieNode *nodeToAdd);
-    void insertByRating(MovieNode *nodeToAdd);
-    void addToSummaryByName(MovieNode *node, string &output, bool ascending);
-    void addToSummaryByLength(MovieNode *node, string &output, bool ascending);
-    string generateSingleMovieSummary(MovieNode *node) const;
+        void insertByName(MovieNode *nodeToAdd);
 
-public:
-    //constructor
-    MoviePlaitedList();
+        void insertByLength(MovieNode *nodeToAdd);
 
-    void insertMovie(Movie *pMovie);
-    bool deleteMovie(const string &movieName);
-    string generateSummaryByName(bool ascending);
-    string generateSummaryByLength(bool ascending);
+        void insertByRating(MovieNode *nodeToAdd);
 
-    // destructor
-    virtual ~MoviePlaitedList();
+    public:
+        MoviePlaitedList();
 
-};
+        MovieNode *getNameHead();
+
+        MovieNode *getLengthHead();
+
+        MovieNode *getRatingHead();
+
+        void insertMovie(Movie *pMovie);
+
+        bool deleteMovie(const string &movieName);
+
+        virtual ~MoviePlaitedList();
+
+    };
 }
-
 
 
 #endif //MOVIEPLAITERCLION_MOVIEPLAITEDLIST_H

@@ -18,6 +18,9 @@ private:
     MoviePlaitedList movies;
 
     void addMovieFromString(const string &movieInfo);
+    void addToSummaryByName(MovieNode *node, string &output, bool ascending);
+    void addToSummaryByLength(MovieNode *node, string &output, bool ascending);
+    string generateSingleMovieSummary(MovieNode *node) const;
 
 public:
     void addMovie(Movie *pMovie);

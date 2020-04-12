@@ -114,10 +114,6 @@ void MovieLibraryWindow::cbSortingMethodChanged(Fl_Widget* widget, void* data)
     auto* window = (MovieLibraryWindow*)data;
     window->sortingMethodChanged();
     window->setSummaryText();
-
-#ifdef DIAGNOSTIC_OUTPUT
-    cout << "Sorting method: " << window->getSortOrder() << endl;
-#endif
 }
 
 /**
@@ -151,9 +147,6 @@ void MovieLibraryWindow::cbLoad(Fl_Widget* widget, void* data)
 
     window->library.importFromCSV(movieFileContent);
     window->setSummaryText();
-#ifdef DIAGNOSTIC_OUTPUT
-    cout << "Filename selected: " << window->getFilename() << endl;
-#endif
 
 }
 
@@ -215,11 +208,6 @@ void MovieLibraryWindow::cbSave(Fl_Widget* widget, void* data)
 {
     auto *window = (MovieLibraryWindow*)data;
     window->promptUserForFilename(Fl_File_Chooser::CREATE, "Movie file to save to");
-
-#ifdef DIAGNOSTIC_OUTPUT
-    cout << "Filename selected: " << window->getFilename() << endl;
-#endif
-
 }
 
 /**
@@ -247,14 +235,6 @@ void MovieLibraryWindow::cbAddMovie(Fl_Widget* widget, void* data)
     if (addMovie.getWindowResult() == OKCancelWindow::WindowResult::OK)
     {
         Movie* pMovie = addMovie.getMovie();
-#ifdef DIAGNOSTIC_OUTPUT
-        cout << "ADDING from add window:" << endl;
-        cout << "Name: " << pMovie->getName() << endl;
-        cout << "Studio: " << pMovie->getStudio() << endl;
-        cout << "Year: " << pMovie->getYear() << endl;
-        cout << "Rating: " << pMovie->getRating() << endl;
-        cout << "Length: " << pMovie->getLength() << endl;
-#endif
         window->library.addMovie(pMovie);
         window->setSummaryText();
     }
