@@ -31,15 +31,15 @@ namespace model
         }
         if (studio.empty())
         {
-            throw invalid_argument(name + "studio cannot be empty");
+            throw invalid_argument(name + " studio cannot be empty");
         }
         if (year < 0)
         {
-            throw invalid_argument(name + "year must be >= 0");
+            throw invalid_argument(name + " year must be >= 0");
         }
         if (length < 1)
         {
-            throw invalid_argument(name + "length must be at least one");
+            throw invalid_argument(name + " length must be at least one");
         }
 
         this->name = name;

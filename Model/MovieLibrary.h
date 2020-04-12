@@ -11,28 +11,34 @@ using namespace model;
 namespace model
 {
 
-class MovieLibrary
-{
+    class MovieLibrary
+    {
 
-private:
-    MoviePlaitedList movies;
+    private:
+        MoviePlaitedList movies;
 
-    void addMovieFromString(const string &movieInfo);
-    void addToSummaryByName(MovieNode *node, string &output, bool ascending);
-    void addToSummaryByLength(MovieNode *node, string &output, bool ascending);
-    string generateSingleMovieSummary(MovieNode *node) const;
+        void addMovieFromString(const string &movieInfo);
 
-public:
-    void addMovie(Movie *pMovie);
-    bool deleteMovie(const string &movieName);
-    void importFromCSV(const string &csvContent);
-    string generateSummaryByName(bool ascending);
-    string generateSummaryByLength(bool ascending);
+        void addToSummaryByName(MovieNode *node, string &output, bool ascending);
 
-};
+        void addToSummaryByLength(MovieNode *node, string &output, bool ascending);
+
+        string generateSingleMovieSummary(MovieNode *node) const;
+
+    public:
+        void addMovie(Movie *pMovie);
+
+        bool deleteMovie(const string &movieName);
+
+        void importFromCSV(const string &csvContent);
+
+        string generateSummaryByName(bool ascending);
+
+        string generateSummaryByLength(bool ascending);
+
+    };
 
 }
-
 
 
 #endif //MOVIEPLAITERCLION_MOVIELIBRARY_H

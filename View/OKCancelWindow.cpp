@@ -4,7 +4,7 @@ namespace view
 {
 
 //
-// Constructs a ok/cancel window creating and initializing all the widgets taht will be displayed
+// Constructs a ok/cancel window creating and initializing all the widgets that will be displayed
 //
 // @precondition width > 0 AND height > 0
 // @postcondition none

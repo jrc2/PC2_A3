@@ -20,9 +20,6 @@ using namespace std;
 namespace view
 {
 
-//
-// Defines the window where a user can load, save, add, and delete movies from a movie library
-//
 class MovieLibraryWindow : public Fl_Window
 {
 public:
