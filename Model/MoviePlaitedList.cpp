@@ -12,7 +12,6 @@ namespace model
         this->nameHead = nullptr;
         this->lengthHead = nullptr;
         this->ratingHead = nullptr;
-        this->longestName = 0;
     }
 
     /**
@@ -63,7 +62,7 @@ namespace model
         auto *node = new MovieNode(pMovie);
         this->insertByName(node);
         this->insertByLength(node);
-        //TODO call insert by rating, insert by length
+        //TODO call insert by rating
     }
 
     void MoviePlaitedList::insertByName(MovieNode *nodeToAdd)
@@ -95,7 +94,7 @@ namespace model
         if ((next != nullptr && toUpperCase(next->getMovieInfo()->getName()) == nameToAdd) ||
                 toUpperCase(current->getMovieInfo()->getName()) == nameToAdd)
         {
-            return; //TODO return or throw something so error can be shown
+            throw invalid_argument("\"" + nameToAdd + "\" already exists");
         }
 
         current->setNextName(nodeToAdd);
@@ -121,6 +120,17 @@ namespace model
 
         MovieNode *current = this->lengthHead;
         MovieNode *next = this->lengthHead->getNextLength();
+        string nameToAdd = toUpperCase(nodeToAdd->getMovieInfo()->getName());
+
+        if (next == nullptr && lengthToAdd == current->getMovieInfo()->getLength())
+        {
+            if (toUpperCase(current->getMovieInfo()->getName()) > nameToAdd)
+            {
+                nodeToAdd->setNextLength(current);
+                this->lengthHead = nodeToAdd;
+                return;
+            }
+        }
 
         while (next != nullptr && lengthToAdd > next->getMovieInfo()->getLength())
         {
@@ -128,14 +138,18 @@ namespace model
             next = next->getNextLength();
         }
 
-        if ((next != nullptr && next->getMovieInfo()->getLength() == lengthToAdd) ||
-                current->getMovieInfo()->getLength() == lengthToAdd)
+        if (next != nullptr && next->getMovieInfo()->getLength() == lengthToAdd)
         {
-            return; //TODO return or throw something so error can be shown
+            while (next != nullptr && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd)
+            {
+                current = next;
+                next = next->getNextName();
+            }
         }
 
+        nodeToAdd->setNextLength(current->getNextLength());
         current->setNextLength(nodeToAdd);
-        nodeToAdd->setNextLength(next);
+
     }
 
     void MoviePlaitedList::insertByRating(MovieNode *nodeToAdd)
@@ -158,6 +172,7 @@ namespace model
         if (current->getMovieInfo()->getName() == movieName)
         {
             this->nameHead = next;
+            this->deleteFromLength(current);
             delete current;
             return true;
         }
@@ -174,13 +189,39 @@ namespace model
         if (next->getNextName() == nullptr)
         {
             current->setNextName(nullptr);
+            this->deleteFromLength(next);
             delete next;
             return true;
         }
 
         current->setNextName(next->getNextName());
+        this->deleteFromLength(next);
         delete next;
         return true;
+    }
+
+    void MoviePlaitedList::deleteFromLength(MovieNode *nodeToDelete)
+    {
+        if (this->lengthHead == nodeToDelete)
+        {
+            this->lengthHead = nodeToDelete->getNextLength();
+            return;
+        }
+
+        MovieNode *current = this->lengthHead;
+        MovieNode *next = this->lengthHead->getNextLength();
+
+        while (next != nullptr)
+        {
+            if (next == nodeToDelete)
+            {
+                current->setNextLength(next->getNextLength());
+                return;
+            }
+
+            current = current->getNextLength();
+            next = next->getNextLength();
+        }
     }
 
     /**

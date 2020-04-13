@@ -16,13 +16,14 @@ namespace model
         MovieNode *nameHead;
         MovieNode *lengthHead;
         MovieNode *ratingHead;
-        int longestName;
 
         void insertByName(MovieNode *nodeToAdd);
 
         void insertByLength(MovieNode *nodeToAdd);
 
         void insertByRating(MovieNode *nodeToAdd);
+
+        void deleteFromLength(MovieNode *nodeToDelete);
 
     public:
         MoviePlaitedList();

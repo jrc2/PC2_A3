@@ -164,12 +164,12 @@ namespace model
     string MovieLibrary::generateSingleMovieSummary(MovieNode *node) const
     {
         Movie *movie = node->getMovieInfo();
-        const string &name = movie->getName();
-        const string &studio = movie->getStudio();
-        const string &year = to_string(movie->getYear());
-        const string &rating = movie->getRatingString();
-        const string &length = to_string(movie->getLength());
-        const string &output =
+        string name = movie->getName();
+        string studio = movie->getStudio();
+        string year = to_string(movie->getYear());
+        string rating = movie->getRatingString();
+        string length = to_string(movie->getLength());
+        string output =
                 name + ", " + studio + ", " + year + ", " + rating + ", " + length +
                 "\n"; //TODO format into even columns
 

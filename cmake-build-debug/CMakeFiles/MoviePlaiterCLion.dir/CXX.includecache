@@ -16,27 +16,23 @@ string
 Movie.h
 ../Utils/Movie.h
 
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/AddMovieWindow.cpp
-AddMovieWindow.h
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/AddMovieWindow.h
-Utils.h
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/Utils.h
-Fl/fl_ask.H
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
+string
 -
-sstream
--
-
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/AddMovieWindow.h
-OKCancelWindow.h
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/OKCancelWindow.h
 Movie.h
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/Movie.h
-Fl/Fl_Input.H
--
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
 
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/View/OKCancelWindow.h
-Fl/Fl_Window.H
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.cpp
+iostream
 -
-Fl/Fl_Button.H
+Utils.h
 -
+MoviePlaitedList.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.h
+
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.h
+Movie.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
+MovieNode.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
 

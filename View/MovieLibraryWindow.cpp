@@ -241,8 +241,16 @@ namespace view
 
         if (addMovie.getWindowResult() == OKCancelWindow::WindowResult::OK)
         {
-            Movie *pMovie = addMovie.getMovie();
-            window->library.addMovie(pMovie);
+            try
+            {
+                Movie *pMovie = addMovie.getMovie();
+                window->library.addMovie(pMovie);
+            }
+            catch (const invalid_argument &error)
+            {
+                fl_alert("%s", error.what());
+            }
+
 
             window->setSummaryText();
         }
@@ -254,7 +262,7 @@ namespace view
      * @precondition widget != 0 AND data != 0
      * @postcondition none
      *
-     * @param widget The widget that initiatied the callback
+     * @param widget The widget that initiated the callback
      * @param data Any data that was passed with the call back. In this instance, a pointer to the window.
      */
     void MovieLibraryWindow::cbDeleteMovie(Fl_Widget *widget, void *data)

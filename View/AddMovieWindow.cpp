@@ -61,9 +61,9 @@ namespace view
             this->pMovie = new Movie(name, studio, year, rating, length);
             this->hide();
         }
-        catch (const invalid_argument &e)
+        catch (const invalid_argument &error)
         {
-            fl_alert("%s", e.what());
+            fl_alert("%s", error.what());
         }
 
 

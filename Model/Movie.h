@@ -36,9 +36,9 @@ namespace model
 
         string getRatingString() const;
 
-        int getYear() const;
+        int getYear();
 
-        int getLength() const;
+        int getLength();
 
     };
 

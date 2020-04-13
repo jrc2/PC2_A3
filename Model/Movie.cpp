@@ -126,7 +126,7 @@ namespace model
      *
      * @return the movie release year
      */
-    int Movie::getYear() const
+    int Movie::getYear()
     {
         return this->year;
     }
@@ -139,7 +139,7 @@ namespace model
      *
      * @return the movie length in minutes
      */
-    int Movie::getLength() const
+    int Movie::getLength()
     {
         return this->length;
     }
