@@ -16,16 +16,21 @@ namespace model
 
     private:
         MoviePlaitedList movies;
+        int longestNameLength;
+        int longestStudioLength;
+        bool containsNotRated;
 
         void addMovieFromString(const string &movieInfo);
 
-        void addToSummaryByName(MovieNode *node, string &output, bool ascending);
+        void generateSummaryByName(MovieNode *node, string &output, bool ascending, bool forCSV);
 
-        void addToSummaryByLength(MovieNode *node, string &output, bool ascending);
+        void generateSummaryByLength(MovieNode *node, string &output, bool ascending);
 
-        void addToSummaryByRating(MovieNode *node, string &output, bool ascending);
+        void generateSummaryByRating(MovieNode *node, string &output, bool ascending);
 
-        string generateSingleMovieSummary(MovieNode *node) const;
+        string generateSingleMovieSummary(MovieNode *node, bool forCSV) const;
+    
+        void generateColumnLengths();
 
     public:
         void addMovie(Movie *pMovie);
@@ -34,11 +39,11 @@ namespace model
 
         void importFromCSV(const string &csvContent);
 
-        string generateSummaryByName(bool ascending);
+        string getSummaryByName(bool ascending, bool forCSV);
 
-        string generateSummaryByLength(bool ascending);
+        string getSummaryByLength(bool ascending);
 
-        string generateSummaryByRating(bool ascending);
+        string getSummaryByRating(bool ascending);
 
     };
 

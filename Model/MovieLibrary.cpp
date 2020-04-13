@@ -94,16 +94,17 @@ namespace model
      * @param ascending set to true to sort ascending by name, false to sort descending
      * @return the summary output
      */
-    string MovieLibrary::generateSummaryByName(bool ascending)
+    string MovieLibrary::getSummaryByName(bool ascending, bool forCSV)
     {
+        this->generateColumnLengths();
         string output;
         MovieNode *currMovieNode = this->movies.getNameHead();
-        this->addToSummaryByName(currMovieNode, output, ascending);
+        this->generateSummaryByName(currMovieNode, output, ascending, forCSV);
 
         return output;
     }
 
-    void MovieLibrary::addToSummaryByName(MovieNode *node, string &output, bool ascending)
+    void MovieLibrary::generateSummaryByName(MovieNode *node, string &output, bool ascending, bool forCSV)
     {
         if (node == nullptr)
         {
@@ -112,14 +113,14 @@ namespace model
 
         if (ascending)
         {
-            output += this->generateSingleMovieSummary(node);
+            output += this->generateSingleMovieSummary(node, false);
         }
-
-        this->addToSummaryByName(node->getNextName(), output, ascending);
+    
+        this->generateSummaryByName(node->getNextName(), output, ascending, forCSV);
 
         if (!ascending)
         {
-            output += this->generateSingleMovieSummary(node);
+            output += this->generateSingleMovieSummary(node, false);
         }
     }
 
@@ -132,16 +133,17 @@ namespace model
      * @param ascending set to true to sort ascending by length, false to sort descending
      * @return the summary output
      */
-    string MovieLibrary::generateSummaryByLength(bool ascending)
+    string MovieLibrary::getSummaryByLength(bool ascending)
     {
+        this->generateColumnLengths();
         string output;
         MovieNode *currMovieNode = this->movies.getLengthHead();
-        this->addToSummaryByLength(currMovieNode, output, ascending);
+        this->generateSummaryByLength(currMovieNode, output, ascending);
 
         return output;
     }
 
-    void MovieLibrary::addToSummaryByLength(MovieNode *node, string &output, bool ascending)
+    void MovieLibrary::generateSummaryByLength(MovieNode *node, string &output, bool ascending)
     {
         if (node == nullptr)
         {
@@ -150,14 +152,14 @@ namespace model
 
         if (ascending)
         {
-            output += this->generateSingleMovieSummary(node);
+            output += this->generateSingleMovieSummary(node, false);
         }
-
-        this->addToSummaryByLength(node->getNextLength(), output, ascending);
+    
+        this->generateSummaryByLength(node->getNextLength(), output, ascending);
 
         if (!ascending)
         {
-            output += this->generateSingleMovieSummary(node);
+            output += this->generateSingleMovieSummary(node, false);
         }
     }
 
@@ -170,16 +172,17 @@ namespace model
      * @param ascending set to true to sort ascending by length, false to sort descending
      * @return the summary output
      */
-    string MovieLibrary::generateSummaryByRating(bool ascending)
+    string MovieLibrary::getSummaryByRating(bool ascending)
     {
+        this->generateColumnLengths();
         string output;
         MovieNode *currMovieNode = this->movies.getRatingHead();
-        this->addToSummaryByRating(currMovieNode, output, ascending);
+        this->generateSummaryByRating(currMovieNode, output, ascending);
 
         return output;
     }
 
-    void MovieLibrary::addToSummaryByRating(MovieNode *node, string &output, bool ascending)
+    void MovieLibrary::generateSummaryByRating(MovieNode *node, string &output, bool ascending)
     {
         if (node == nullptr)
         {
@@ -188,18 +191,18 @@ namespace model
 
         if (ascending)
         {
-            output += this->generateSingleMovieSummary(node);
+            output += this->generateSingleMovieSummary(node, false);
         }
-
-        this->addToSummaryByRating(node->getNextRating(), output, ascending);
+    
+        this->generateSummaryByRating(node->getNextRating(), output, ascending);
 
         if (!ascending)
         {
-            output += this->generateSingleMovieSummary(node);
+            output += this->generateSingleMovieSummary(node, false);
         }
     }
 
-    string MovieLibrary::generateSingleMovieSummary(MovieNode *node) const
+    string MovieLibrary::generateSingleMovieSummary(MovieNode *node, bool forCSV) const
     {
         Movie *movie = node->getMovieInfo();
         string name = movie->getName();
@@ -207,10 +210,47 @@ namespace model
         string year = to_string(movie->getYear());
         string rating = movie->getRatingString();
         string length = to_string(movie->getLength());
-        string output =
-                name + ", " + studio + ", " + year + ", " + rating + ", " + length +
-                "\n"; //TODO format into even columns
+        
+        if (forCSV)
+        {
+            return name + "," + studio + "," + year + "," + rating + "," + length + "\n";
+        }
+        
+        string nameAndYear = name + "-" + year;
+        nameAndYear.resize(this->longestNameLength + 6, ' ');
+        studio.resize(this->longestStudioLength + 1, ' ');
+        this->containsNotRated ? rating.resize(10, ' ') : rating.resize(5, ' ');
 
-        return output;
+        return nameAndYear + studio + rating + length + "\n";
+    }
+    
+    void MovieLibrary::generateColumnLengths()
+    {
+        MovieNode *current = this->movies.getNameHead();
+        this->longestNameLength = 0;
+        this->longestStudioLength = 0;
+        this->containsNotRated = false;
+        
+        while (current != nullptr)
+        {
+            int currentNameLength = current->getMovieInfo()->getName().length();
+            if (currentNameLength > this->longestNameLength)
+            {
+                this->longestNameLength = currentNameLength;
+            }
+            
+            int currentStudioLength = current->getMovieInfo()->getStudio().length();
+            if (currentStudioLength > this->longestStudioLength)
+            {
+                this->longestStudioLength = currentStudioLength;
+            }
+            
+            if (current->getMovieInfo()->getRating() == Movie::NOT_RATED)
+            {
+                this->containsNotRated = true;
+            }
+            
+            current = current->getNextName();
+        }
     }
 }

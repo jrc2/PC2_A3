@@ -318,27 +318,27 @@ namespace view
 
         if (this->getSortOrder() == NAME_ASCENDING)
         {
-            output = this->library.generateSummaryByName(true);
+            output = this->library.getSummaryByName(true, false);
         }
         else if (this->getSortOrder() == NAME_DESCENDING)
         {
-            output = this->library.generateSummaryByName(false);
+            output = this->library.getSummaryByName(false, false);
         }
         else if (this->getSortOrder() == LENGTH_ASCENDING)
         {
-            output = this->library.generateSummaryByLength(true);
+            output = this->library.getSummaryByLength(true);
         }
         else if (this->getSortOrder() == LENGTH_DESCENDING)
         {
-            output = this->library.generateSummaryByLength(false);
+            output = this->library.getSummaryByLength(false);
         }
         else if (this->getSortOrder() == RATING_ASCENDING)
         {
-            output = this->library.generateSummaryByRating(true);
+            output = this->library.getSummaryByRating(true);
         }
         else
         {
-            output = this->library.generateSummaryByRating(false);
+            output = this->library.getSummaryByRating(false);
         }
 
         this->summaryOutputTextBuffer->text(output.c_str());
