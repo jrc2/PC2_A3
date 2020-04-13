@@ -227,7 +227,7 @@ namespace model
      * @param movieName the name of the Movie
      * @return true if the movie existed and was removed, false if it did not exist
      */
-    bool MoviePlaitedList::deleteMovie(const string &movieName) //TODO delete from rating strand, handle delete when only one element and it doesnt match
+    bool MoviePlaitedList::deleteMovie(const string &movieName)
     {
         MovieNode *current = this->nameHead;
 
@@ -237,6 +237,11 @@ namespace model
         }
 
         MovieNode *next = this->nameHead->getNextName();
+
+        if (next == nullptr && current->getMovieInfo()->getName() != movieName)
+        {
+            return false;
+        }
 
         if (current->getMovieInfo()->getName() == movieName)
         {
