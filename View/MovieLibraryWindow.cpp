@@ -148,11 +148,11 @@ namespace view
         auto *window = (MovieLibraryWindow *) data;
         window->promptUserForFilename(Fl_File_Chooser::SINGLE, "Movie file to load");
 
-        ifstream movieFile(window->getFilename());
-        string movieFileContent;
-        movieFileContent.assign((istreambuf_iterator<char>(movieFile)), istreambuf_iterator<char>());
+        ifstream moviesImportFile(window->getFilename());
+        string importContent;
+        importContent.assign((istreambuf_iterator<char>(moviesImportFile)), istreambuf_iterator<char>());
 
-        window->library.importFromCSV(movieFileContent);
+        window->library.importFromCSV(importContent);
         window->setSummaryText();
 
     }
@@ -215,6 +215,11 @@ namespace view
     {
         auto *window = (MovieLibraryWindow *) data;
         window->promptUserForFilename(Fl_File_Chooser::CREATE, "Movie file to save to");
+        string contentsToWrite = window->library.getSummaryByName(true, true);
+        ofstream moviesExportFile;
+        moviesExportFile.open(window->getFilename());
+        moviesExportFile << contentsToWrite;
+        moviesExportFile.close();
     }
 
     /**

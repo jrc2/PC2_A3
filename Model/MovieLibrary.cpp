@@ -113,14 +113,14 @@ namespace model
 
         if (ascending)
         {
-            output += this->generateSingleMovieSummary(node, false);
+            output += this->generateSingleMovieSummary(node, forCSV);
         }
     
         this->generateSummaryByName(node->getNextName(), output, ascending, forCSV);
 
         if (!ascending)
         {
-            output += this->generateSingleMovieSummary(node, false);
+            output += this->generateSingleMovieSummary(node, forCSV);
         }
     }
 
