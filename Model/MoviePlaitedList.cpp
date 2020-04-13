@@ -109,7 +109,7 @@ namespace model
         if ((next != nullptr && toUpperCase(next->getMovieInfo()->getName()) == nameToAdd) ||
                 toUpperCase(current->getMovieInfo()->getName()) == nameToAdd)
         {
-            throw invalid_argument("\"" + nameToAdd + "\" already exists");
+            throw invalid_argument("Movie \"" + nodeToAdd->getMovieInfo()->getName() + "\" already exists");
         }
 
         current->setNextName(nodeToAdd);
@@ -230,6 +230,7 @@ namespace model
     bool MoviePlaitedList::deleteMovie(const string &movieName)
     {
         MovieNode *current = this->nameHead;
+        string uppercaseMovieName = toUpperCase(movieName);
 
         if (current == nullptr)
         {
@@ -238,12 +239,12 @@ namespace model
 
         MovieNode *next = this->nameHead->getNextName();
 
-        if (next == nullptr && current->getMovieInfo()->getName() != movieName)
+        if (next == nullptr && toUpperCase(current->getMovieInfo()->getName()) != uppercaseMovieName)
         {
             return false;
         }
 
-        if (current->getMovieInfo()->getName() == movieName)
+        if (toUpperCase(current->getMovieInfo()->getName()) == uppercaseMovieName)
         {
             this->nameHead = next;
             this->deleteFromLength(current);
@@ -252,7 +253,7 @@ namespace model
             return true;
         }
 
-        while (next->getMovieInfo()->getName() != movieName)
+        while (toUpperCase(next->getMovieInfo()->getName()) != uppercaseMovieName)
         {
             current = current->getNextName();
             next = next->getNextName();

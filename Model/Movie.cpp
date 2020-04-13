@@ -13,7 +13,7 @@ namespace model
     /**
      * Constructs a new movie
      *
-     * @precondition !name.empty() AND !studio.empty() AND year>=0 AND length>=1
+     * @precondition !name.empty() AND !studio.empty() AND year>=0 AND year<=9999 AND length>=1
      * @postcondition getName()==name AND getStudio()==studio AND getRating()==rating
      *                AND getYear()==year AND getLength()==length
      *
@@ -27,19 +27,19 @@ namespace model
     {
         if (name.empty())
         {
-            throw invalid_argument("name cannot be empty");
+            throw invalid_argument("Movie name cannot be empty");
         }
         if (studio.empty())
         {
-            throw invalid_argument(name + " studio cannot be empty");
+            throw invalid_argument("Movie \"" +name + "\" studio cannot be empty");
         }
-        if (year < 0)
+        if (year < 0 || year > 9999)
         {
-            throw invalid_argument(name + " year must be >= 0");
+            throw invalid_argument("Movie \"" +name + "\" year must be >= 0 AND <= 9999");
         }
         if (length < 1)
         {
-            throw invalid_argument(name + " length must be at least one");
+            throw invalid_argument("Movie \"" +name + "\" length must be at least one");
         }
 
         this->name = name;

@@ -64,9 +64,9 @@ namespace model
 
         string title = movieInfoArray[0];
         string studio = movieInfoArray[1];
-        int year = toInt(movieInfoArray[2], "Year field is not a number");
+        int year = toInt(movieInfoArray[2], ("Error for movie \"" + title + "\":\nYear field is not a number").c_str());
         Movie::Rating rating = returnRatingBasedOnString(movieInfoArray[3]);
-        int length = toInt(movieInfoArray[4], "Length field is not a number");
+        int length = toInt(movieInfoArray[4], ("Error for movie \"" + title + "\":\nLength field is not a number").c_str());
         auto *pMovie = new Movie(title, studio, year, rating, length);
         this->addMovie(pMovie);
     }

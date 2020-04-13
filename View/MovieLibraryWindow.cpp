@@ -151,10 +151,19 @@ namespace view
         ifstream moviesImportFile(window->getFilename());
         string importContent;
         importContent.assign((istreambuf_iterator<char>(moviesImportFile)), istreambuf_iterator<char>());
-
-        window->library.importFromCSV(importContent);
+    
+        try
+        {
+            window->library.importFromCSV(importContent);
+            fl_message("%s", "File loaded");
+        }
+        catch (const invalid_argument &error)
+        {
+            string errorMessage(error.what());
+            fl_alert("%s", (errorMessage + "\nFile loaded up to error").c_str());
+        }
+    
         window->setSummaryText();
-
     }
 
     /**
