@@ -332,7 +332,15 @@ namespace view
         {
             output = this->library.generateSummaryByLength(false);
         }
-        //TODO add other orders (based on radio buttons)
+        else if (this->getSortOrder() == RATING_ASCENDING)
+        {
+            output = this->library.generateSummaryByRating(true);
+        }
+        else
+        {
+            output = this->library.generateSummaryByRating(false);
+        }
+
         this->summaryOutputTextBuffer->text(output.c_str());
     }
 

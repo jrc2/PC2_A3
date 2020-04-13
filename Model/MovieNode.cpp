@@ -14,8 +14,8 @@ namespace model
      * Constructs a new MovieNode
      *
      * @precondition movieInfo!=nullptr
-     * @postcondition getMovieInfo()==movieInfo, getNextName()==nullptr, getNextLength()==nullptr,
-     *                getNextRating()==nullptr
+     * @postcondition getMovieInfo()==movieInfo AND getNextName()==nullptr AND
+     *                getNextLength()==nullptr AND getNextRating()==nullptr
      *
      * @param movieInfo pointer to Movie
      */

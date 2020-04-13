@@ -161,6 +161,44 @@ namespace model
         }
     }
 
+    /**
+     * Generates the summary output, ordered by Movie rating
+     *
+     * @precondition none
+     * @postcondition none
+     *
+     * @param ascending set to true to sort ascending by length, false to sort descending
+     * @return the summary output
+     */
+    string MovieLibrary::generateSummaryByRating(bool ascending)
+    {
+        string output;
+        MovieNode *currMovieNode = this->movies.getRatingHead();
+        this->addToSummaryByRating(currMovieNode, output, ascending);
+
+        return output;
+    }
+
+    void MovieLibrary::addToSummaryByRating(MovieNode *node, string &output, bool ascending)
+    {
+        if (node == nullptr)
+        {
+            return;
+        }
+
+        if (ascending)
+        {
+            output += this->generateSingleMovieSummary(node);
+        }
+
+        this->addToSummaryByRating(node->getNextRating(), output, ascending);
+
+        if (!ascending)
+        {
+            output += this->generateSingleMovieSummary(node);
+        }
+    }
+
     string MovieLibrary::generateSingleMovieSummary(MovieNode *node) const
     {
         Movie *movie = node->getMovieInfo();
@@ -175,5 +213,4 @@ namespace model
 
         return output;
     }
-
 }

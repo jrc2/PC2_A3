@@ -5,7 +5,17 @@
 namespace model
 {
     /**
-     * TODO
+     * The plaited list containing movies. There are strands to link movies by
+     * name, length, and rating.
+     *
+     * @author John Chittam
+     */
+
+    /**
+     * Constructs a new MoviePlaitedList
+     *
+     * @precondition none
+     * @postcondition getNameHead()==nullptr AND getLengthHead()==nullptr AND getRatingHead()==nullptr
      */
     MoviePlaitedList::MoviePlaitedList()
     {
@@ -54,15 +64,20 @@ namespace model
     }
 
     /**
-     * TODO
-     * @param pMovie
+     * Adds the given Movie to the plaited list in the proper position for
+     * all strands
+     *
+     * @precondition none
+     * @postcondition none
+     *
+     * @param pMovie the Movie to add
      */
     void MoviePlaitedList::insertMovie(Movie *pMovie)
     {
         auto *node = new MovieNode(pMovie);
         this->insertByName(node);
         this->insertByLength(node);
-        //TODO call insert by rating
+        this->insertByRating(node);
     }
 
     void MoviePlaitedList::insertByName(MovieNode *nodeToAdd)
@@ -154,11 +169,65 @@ namespace model
 
     void MoviePlaitedList::insertByRating(MovieNode *nodeToAdd)
     {
-        //TODO insert where rating goes
+        if (this->ratingHead == nullptr)
+        {
+            this->ratingHead = nodeToAdd;
+            return;
+        }
+
+        Movie::Rating ratingToAdd = nodeToAdd->getMovieInfo()->getRating();
+
+        if (ratingToAdd < this->ratingHead->getMovieInfo()->getRating())
+        {
+            nodeToAdd->setNextRating(this->ratingHead);
+            this->ratingHead = nodeToAdd;
+            return;
+        }
+
+        MovieNode *current = this->ratingHead;
+        MovieNode *next = this->ratingHead->getNextRating();
+        string nameToAdd = toUpperCase(nodeToAdd->getMovieInfo()->getName());
+
+        if (next == nullptr && ratingToAdd == current->getMovieInfo()->getRating())
+        {
+            if (toUpperCase(current->getMovieInfo()->getName()) > nameToAdd)
+            {
+                nodeToAdd->setNextRating(current);
+                this->ratingHead = nodeToAdd;
+                return;
+            }
+        }
+
+        while (next != nullptr && ratingToAdd > next->getMovieInfo()->getRating())
+        {
+            current = next;
+            next = next->getNextRating();
+        }
+
+        if (next != nullptr && next->getMovieInfo()->getRating() == ratingToAdd)
+        {
+            while (next != nullptr && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd)
+            {
+                current = next;
+                next = next->getNextName();
+            }
+        }
+
+        nodeToAdd->setNextRating(current->getNextRating());
+        current->setNextRating(nodeToAdd);
     }
 
-    //TODO doc
-    bool MoviePlaitedList::deleteMovie(const string &movieName) //TODO delete from length and rating strands, handle delete when only one element and it doesnt match
+    /**
+     * Removes the movie with the given name from all strands of the plaited
+     * list and deletes the associated MovieNode pointer
+     *
+     * @precondition none
+     * @postcondition Movie removed if it exists
+     *
+     * @param movieName the name of the Movie
+     * @return true if the movie existed and was removed, false if it did not exist
+     */
+    bool MoviePlaitedList::deleteMovie(const string &movieName) //TODO delete from rating strand, handle delete when only one element and it doesnt match
     {
         MovieNode *current = this->nameHead;
 

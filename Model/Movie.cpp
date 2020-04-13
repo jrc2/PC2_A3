@@ -13,9 +13,9 @@ namespace model
     /**
      * Constructs a new movie
      *
-     * @precondition !name.empty(), !studio.empty(), year>=0, length>=1
-     * @postcondition getName()==name, getStudio()==studio, getRating()==rating
-     *                getYear()==year, getLength()==length
+     * @precondition !name.empty() AND !studio.empty() AND year>=0 AND length>=1
+     * @postcondition getName()==name AND getStudio()==studio AND getRating()==rating
+     *                AND getYear()==year AND getLength()==length
      *
      * @param name the movie's name
      * @param studio the studio that produced the movie

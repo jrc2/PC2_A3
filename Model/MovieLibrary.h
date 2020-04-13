@@ -23,6 +23,8 @@ namespace model
 
         void addToSummaryByLength(MovieNode *node, string &output, bool ascending);
 
+        void addToSummaryByRating(MovieNode *node, string &output, bool ascending);
+
         string generateSingleMovieSummary(MovieNode *node) const;
 
     public:
@@ -35,6 +37,8 @@ namespace model
         string generateSummaryByName(bool ascending);
 
         string generateSummaryByLength(bool ascending);
+
+        string generateSummaryByRating(bool ascending);
 
     };
 
