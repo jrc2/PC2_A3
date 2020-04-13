@@ -60,14 +60,6 @@ string
 MovieLibrary.h
 ../View/MovieLibrary.h
 
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.cpp
-stdexcept
--
-Movie.h
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
-Utils.h
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Utils.h
-
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
 string
 -
@@ -91,12 +83,6 @@ Movie.h
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
 MoviePlaitedList.h
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.h
-
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.cpp
-stdexcept
--
-MovieNode.h
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
 
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
 string

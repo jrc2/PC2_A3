@@ -25,6 +25,8 @@ namespace model
 
         void deleteFromLength(MovieNode *nodeToDelete);
 
+        void deleteFromRating(MovieNode *nodeToDelete);
+
     public:
         MoviePlaitedList();
 

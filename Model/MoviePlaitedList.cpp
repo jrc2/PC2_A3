@@ -242,6 +242,7 @@ namespace model
         {
             this->nameHead = next;
             this->deleteFromLength(current);
+            this->deleteFromRating(current);
             delete current;
             return true;
         }
@@ -259,12 +260,14 @@ namespace model
         {
             current->setNextName(nullptr);
             this->deleteFromLength(next);
+            this->deleteFromRating(next);
             delete next;
             return true;
         }
 
         current->setNextName(next->getNextName());
         this->deleteFromLength(next);
+        this->deleteFromRating(next);
         delete next;
         return true;
     }
@@ -290,6 +293,30 @@ namespace model
 
             current = current->getNextLength();
             next = next->getNextLength();
+        }
+    }
+
+    void MoviePlaitedList::deleteFromRating(MovieNode *nodeToDelete)
+    {
+        if (this->ratingHead == nodeToDelete)
+        {
+            this->ratingHead = nodeToDelete->getNextRating();
+            return;
+        }
+
+        MovieNode *current = this->ratingHead;
+        MovieNode *next = this->ratingHead->getNextRating();
+
+        while (next != nullptr)
+        {
+            if (next == nodeToDelete)
+            {
+                current->setNextRating(next->getNextRating());
+                return;
+            }
+
+            current = current->getNextRating();
+            next = next->getNextRating();
         }
     }
 
