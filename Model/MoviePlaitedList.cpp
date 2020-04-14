@@ -149,15 +149,8 @@ namespace model
 
     void MoviePlaitedList::insertByRating(MovieNode *nodeToAdd)
     {
-        if (this->ratingHead == nullptr)
-        {
-            this->ratingHead = nodeToAdd;
-            return;
-        }
-
-        Movie::Rating ratingToAdd = nodeToAdd->getMovieInfo()->getRating();
-
-        if (ratingToAdd < this->ratingHead->getMovieInfo()->getRating())
+        int ratingToAdd = nodeToAdd->getMovieInfo()->getRating();
+        if (this->ratingHead == nullptr || ratingHead->getMovieInfo()->getRating() > ratingToAdd)
         {
             nodeToAdd->setNextRating(this->ratingHead);
             this->ratingHead = nodeToAdd;
@@ -165,31 +158,19 @@ namespace model
         }
 
         MovieNode *current = this->ratingHead;
-        MovieNode *next = this->ratingHead->getNextRating();
+        while (current->getNextRating() != nullptr && current->getNextRating()->getMovieInfo()->getRating() < ratingToAdd)
+        {
+            current = current->getNextRating();
+        }
+
         string nameToAdd = toUpperCase(nodeToAdd->getMovieInfo()->getName());
-
-        if (next == nullptr && ratingToAdd == current->getMovieInfo()->getRating())
+        MovieNode *next = current->getNextRating();
+        if (next != nullptr && ratingToAdd == next->getMovieInfo()->getRating())
         {
-            if (toUpperCase(current->getMovieInfo()->getName()) > nameToAdd)
+            while (next != nullptr && next->getMovieInfo()->getRating() == ratingToAdd && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd)
             {
-                nodeToAdd->setNextRating(current);
-                this->ratingHead = nodeToAdd;
-                return;
-            }
-        }
-
-        while (next != nullptr && ratingToAdd > next->getMovieInfo()->getRating())
-        {
-            current = next;
-            next = next->getNextRating();
-        }
-
-        if (next != nullptr && next->getMovieInfo()->getRating() == ratingToAdd)
-        {
-            while (next != nullptr && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd && next->getMovieInfo()->getRating() == nodeToAdd->getMovieInfo()->getRating())
-            {
-                current = next;
-                next = next->getNextName();
+                next = next->getNextRating();
+                current = current->getNextRating();
             }
         }
 
