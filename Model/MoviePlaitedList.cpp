@@ -118,15 +118,8 @@ namespace model
 
     void MoviePlaitedList::insertByLength(MovieNode *nodeToAdd)
     {
-        if (this->lengthHead == nullptr)
-        {
-            this->lengthHead = nodeToAdd;
-            return;
-        }
-
         int lengthToAdd = nodeToAdd->getMovieInfo()->getLength();
-
-        if (lengthToAdd < this->lengthHead->getMovieInfo()->getLength())
+        if (this->lengthHead == nullptr || lengthHead->getMovieInfo()->getLength() > lengthToAdd)
         {
             nodeToAdd->setNextLength(this->lengthHead);
             this->lengthHead = nodeToAdd;
@@ -134,37 +127,24 @@ namespace model
         }
 
         MovieNode *current = this->lengthHead;
-        MovieNode *next = this->lengthHead->getNextLength();
+        while (current->getNextLength() != nullptr && current->getNextLength()->getMovieInfo()->getLength() < lengthToAdd)
+        {
+            current = current->getNextLength();
+        }
+
         string nameToAdd = toUpperCase(nodeToAdd->getMovieInfo()->getName());
-
-        if (next == nullptr && lengthToAdd == current->getMovieInfo()->getLength())
+        MovieNode *next = current->getNextLength();
+        if (next != nullptr && lengthToAdd == next->getMovieInfo()->getLength())
         {
-            if (toUpperCase(current->getMovieInfo()->getName()) > nameToAdd)
+            while (next != nullptr && next->getMovieInfo()->getLength() == lengthToAdd && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd)
             {
-                nodeToAdd->setNextLength(current);
-                this->lengthHead = nodeToAdd;
-                return;
-            }
-        }
-
-        while (next != nullptr && lengthToAdd > next->getMovieInfo()->getLength())
-        {
-            current = next;
-            next = next->getNextLength();
-        }
-
-        if (next != nullptr && next->getMovieInfo()->getLength() == lengthToAdd)
-        {
-            while (next != nullptr && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd && next->getMovieInfo()->getLength() == nodeToAdd->getMovieInfo()->getLength())
-            {
-                current = next;
-                next = next->getNextName();
+                next = next->getNextLength();
+                current = current->getNextLength();
             }
         }
 
         nodeToAdd->setNextLength(current->getNextLength());
         current->setNextLength(nodeToAdd);
-
     }
 
     void MoviePlaitedList::insertByRating(MovieNode *nodeToAdd)

@@ -236,6 +236,7 @@ namespace model
         nameAndYear.resize(this->longestNameLength + 6, ' ');
         studio.resize(this->longestStudioLength + 1, ' ');
         this->containsNotRated ? rating.resize(10, ' ') : rating.resize(5, ' ');
+        length.resize(5, ' ');
 
         return nameAndYear + studio + rating + length + "\n";
     }
