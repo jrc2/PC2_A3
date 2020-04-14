@@ -10,28 +10,34 @@ using namespace std;
 namespace model
 {
 
-class MovieNode
-{
-private:
-    Movie *movieInfo;
-    MovieNode *nextName;
-    MovieNode *nextLength;
-    MovieNode *nextRating;
+    class MovieNode
+    {
+    private:
+        Movie *movieInfo;
+        MovieNode *nextName;
+        MovieNode *nextLength;
+        MovieNode *nextRating;
 
-public:
-    virtual ~MovieNode();
-    MovieNode(Movie *movieInfo);
+    public:
+        virtual ~MovieNode();
 
-    Movie *getMovieInfo();
-    MovieNode *getNextName();
-    MovieNode *getNextLength();
-    MovieNode *getNextRating();
+        MovieNode(Movie *movieInfo);
 
-    void setNextName(MovieNode *nextName);
-    void setNextLength(MovieNode *nextLength);
-    void setNextRating(MovieNode *nextRating);
+        Movie *getMovieInfo();
 
-};
+        MovieNode *getNextName();
+
+        MovieNode *getNextLength();
+
+        MovieNode *getNextRating();
+
+        void setNextName(MovieNode *nextName);
+
+        void setNextLength(MovieNode *nextLength);
+
+        void setNextRating(MovieNode *nextRating);
+
+    };
 }
 
 #endif //MOVIEPLAITERCLION_MOVIENODE_H

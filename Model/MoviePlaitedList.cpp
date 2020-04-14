@@ -68,7 +68,7 @@ namespace model
      * all strands
      *
      * @precondition none
-     * @postcondition none
+     * @postcondition Movie added to plaited list if there are no errors
      *
      * @param pMovie the Movie to add
      */
@@ -109,7 +109,7 @@ namespace model
         if ((next != nullptr && toUpperCase(next->getMovieInfo()->getName()) == nameToAdd) ||
                 toUpperCase(current->getMovieInfo()->getName()) == nameToAdd)
         {
-            throw invalid_argument("Movie \"" + nodeToAdd->getMovieInfo()->getName() + "\" already exists");
+            throw invalid_argument("Movie \"" + nodeToAdd->getMovieInfo()->getName() + "\" already exists.");
         }
 
         current->setNextName(nodeToAdd);
@@ -155,7 +155,7 @@ namespace model
 
         if (next != nullptr && next->getMovieInfo()->getLength() == lengthToAdd)
         {
-            while (next != nullptr && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd)
+            while (next != nullptr && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd && next->getMovieInfo()->getLength() == nodeToAdd->getMovieInfo()->getLength())
             {
                 current = next;
                 next = next->getNextName();
@@ -206,7 +206,7 @@ namespace model
 
         if (next != nullptr && next->getMovieInfo()->getRating() == ratingToAdd)
         {
-            while (next != nullptr && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd)
+            while (next != nullptr && toUpperCase(next->getMovieInfo()->getName()) < nameToAdd && next->getMovieInfo()->getRating() == nodeToAdd->getMovieInfo()->getRating())
             {
                 current = next;
                 next = next->getNextName();
@@ -225,6 +225,7 @@ namespace model
      * @postcondition Movie removed if it exists
      *
      * @param movieName the name of the Movie
+     *
      * @return true if the movie existed and was removed, false if it did not exist
      */
     bool MoviePlaitedList::deleteMovie(const string &movieName)
@@ -331,7 +332,6 @@ namespace model
      */
     MoviePlaitedList::~MoviePlaitedList()
     {
-        //TODO check this
         MovieNode *current = this->nameHead;
         while (current != nullptr)
         {
@@ -339,6 +339,7 @@ namespace model
             delete current;
             current = next;
         }
+
     }
 
 }

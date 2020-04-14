@@ -26,8 +26,6 @@ namespace model
     public:
         Movie(const string &name, const string &studio, int year, Rating rating, int length);
 
-        virtual ~Movie();
-
         const string &getName() const;
 
         const string &getStudio() const;

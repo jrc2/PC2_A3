@@ -3,16 +3,22 @@
 #include <algorithm>
 #include <sstream>
 
-//
-// Converts and returns string in uppercase
-//
-// @precondition none
-// @postcondition none
-//
-// @param text the text to convert to upper case
-//
-// @return Uppercase version of the string
-//
+/**
+ * Utilities to help with repetitive tasks throughout the program.
+ *
+ * @author Duane Yoder, John Chittam
+ */
+
+/**
+ * Converts and returns string in uppercase
+ *
+ * @precondition none
+ * @postcondition none
+ *
+ * @param text the text to convert to upper case
+ *
+ * @return Uppercase version of the string
+ */
 const string toUpperCase(string text)
 {
     transform(text.begin(), text.end(), text.begin(), ::toupper);
@@ -46,6 +52,15 @@ int toInt(const string &text, const char *errorMessage)
 
 }
 
+/**
+ * Returns the Movie::Rating enum corresponding with the given string
+ *
+ * @precondition none
+ * @postcondition none
+ *
+ * @param rating the string form of the Movie's rating
+ * @return the Movie::Rating enum corresponding with the given string
+ */
 model::Movie::Rating returnRatingBasedOnString(string &rating)
 {
     rating = toUpperCase(rating);

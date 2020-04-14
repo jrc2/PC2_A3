@@ -6,21 +6,33 @@
 
 #IncludeRegexTransform: 
 
+../Model/Movie.h
+string
+-
+
 ../Utils/Utils.h
 string
 -
 Movie.h
 ../Utils/Movie.h
 
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.cpp
-stdexcept
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
+string
 -
 Movie.h
 /home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
-Utils.h
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Utils.h
 
-/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
-string
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.cpp
+iostream
 -
+Utils.h
+-
+MoviePlaitedList.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.h
+
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MoviePlaitedList.h
+Movie.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/Movie.h
+MovieNode.h
+/home/csuser/Documents/code/A3/MoviePlaiterCLion/Model/MovieNode.h
 

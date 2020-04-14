@@ -37,16 +37,28 @@ namespace model
     * @postcondition all movies from CSV added
     *
     * @param csvContent the string representation of content from the loaded CSV
+    *
+    * @return a message indicating the file was loaded and containing any errors
     */
-    void MovieLibrary::importFromCSV(const string &csvContent)
+    string MovieLibrary::importFromCSV(const string &csvContent)
     {
         stringstream contentStream(csvContent);
         string line;
+        string returnMessages = "File loaded";
 
         while (getline(contentStream, line, '\n'))
         {
-            this->addMovieFromString(line);
+            try
+            {
+                this->addMovieFromString(line);
+            }
+            catch (const invalid_argument &error)
+            {
+                returnMessages += "\n\n" + string(error.what()) + " Movie skipped.";
+            }
         }
+        
+        return returnMessages;
     }
 
     void MovieLibrary::addMovieFromString(const string &movieInfo)
@@ -64,9 +76,9 @@ namespace model
 
         string title = movieInfoArray[0];
         string studio = movieInfoArray[1];
-        int year = toInt(movieInfoArray[2], ("Error for movie \"" + title + "\":\nYear field is not a number").c_str());
+        int year = toInt(movieInfoArray[2], ("Error for movie \"" + title + "\":\nYear field is not a number.").c_str());
         Movie::Rating rating = returnRatingBasedOnString(movieInfoArray[3]);
-        int length = toInt(movieInfoArray[4], ("Error for movie \"" + title + "\":\nLength field is not a number").c_str());
+        int length = toInt(movieInfoArray[4], ("Error for movie \"" + title + "\":\nLength field is not a number.").c_str());
         auto *pMovie = new Movie(title, studio, year, rating, length);
         this->addMovie(pMovie);
     }
@@ -78,6 +90,7 @@ namespace model
      * @postcondition none
      *
      * @param movieName the name of the movie to delete
+     *
      * @return true if the movie existed and was deleted, false if the movie did not exist
      */
     bool MovieLibrary::deleteMovie(const string &movieName)
@@ -92,6 +105,7 @@ namespace model
      * @postcondition none
      *
      * @param ascending set to true to sort ascending by name, false to sort descending
+     *
      * @return the summary output
      */
     string MovieLibrary::getSummaryByName(bool ascending, bool forCSV)
@@ -131,6 +145,7 @@ namespace model
      * @postcondition none
      *
      * @param ascending set to true to sort ascending by length, false to sort descending
+     *
      * @return the summary output
      */
     string MovieLibrary::getSummaryByLength(bool ascending)
@@ -169,7 +184,8 @@ namespace model
      * @precondition none
      * @postcondition none
      *
-     * @param ascending set to true to sort ascending by length, false to sort descending
+     * @param ascending set to true to sort ascending by rating, false to sort descending
+     *
      * @return the summary output
      */
     string MovieLibrary::getSummaryByRating(bool ascending)
@@ -253,4 +269,5 @@ namespace model
             current = current->getNextName();
         }
     }
+    
 }

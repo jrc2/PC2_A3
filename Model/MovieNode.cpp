@@ -88,7 +88,7 @@ namespace model
      * Sets next Movie by name
      *
      * @precondition none
-     * @postcondition none
+     * @postcondition getNextName()==nextName
      *
      * @param nextName next Movie by name
      */
@@ -101,7 +101,7 @@ namespace model
      * Sets next Movie by length
      *
      * @precondition none
-     * @postcondition none
+     * @postcondition getNextLength==nextLength
      *
      * @param nextLength next Movie by length
      */
@@ -114,7 +114,7 @@ namespace model
      * Sets next Movie by rating
      *
      * @precondition none
-     * @postcondition none
+     * @postcondition getNextRating==nextRating
      *
      * @param nextRating next Movie by rating
      */

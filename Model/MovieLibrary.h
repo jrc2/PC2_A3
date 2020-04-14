@@ -37,14 +37,14 @@ namespace model
 
         bool deleteMovie(const string &movieName);
 
-        void importFromCSV(const string &csvContent);
+        string importFromCSV(const string &csvContent);
 
         string getSummaryByName(bool ascending, bool forCSV);
 
         string getSummaryByLength(bool ascending);
 
         string getSummaryByRating(bool ascending);
-
+        
     };
 
 }

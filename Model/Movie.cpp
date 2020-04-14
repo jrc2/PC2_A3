@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <vector>
 #include "Movie.h"
 #include "Utils.h"
 
@@ -98,24 +99,8 @@ namespace model
      */
     string Movie::getRatingString() const
     {
-        if (this->rating == G)
-        {
-            return "G";
-        }
-        if (this->rating == PG)
-        {
-            return "PG";
-        }
-        if (this->rating == PG13)
-        {
-            return "PG13";
-        }
-        if (this->rating == R)
-        {
-            return "R";
-        }
-
-        return "NOT RATED";
+        const string ratings[] = {"G", "PG", "PG13", "R", "NOT RATED"};
+        return ratings[this->getRating()];
     }
 
     /**
@@ -142,14 +127,6 @@ namespace model
     int Movie::getLength()
     {
         return this->length;
-    }
-
-    /**
-     * Movie destructor
-     */
-    Movie::~Movie()
-    {
-        //TODO
     }
 
 }
